@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center, //alinhamento do bloco
-            mainAxisAlignment: MainAxisAlignment.center,     //alinhamento da coluna
+            crossAxisAlignment: CrossAxisAlignment.start, //alinhamento do bloco
+            mainAxisAlignment: MainAxisAlignment.start,     //alinhamento da coluna
             children: [ 
                 Text(
                 "Ações do usuario",
@@ -42,20 +42,30 @@ class _HomePageState extends State<HomePage> {
                   "Foi clicado: $quantidadedeCliques vezes",
                   style: GoogleFonts.acme(fontSize: 20),
                 ),
-                Row(
+                Row( //colocar dentro de um container
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                  Text(
-                  "10",
-                  style: GoogleFonts.acme(fontSize: 20),
+                  Container(
+                    color: Colors.blue,
+                    child: Text(
+                    "10",
+                    style: GoogleFonts.acme(fontSize: 20),
+                      ),
+                  ),
+                  Container(
+                    color: Colors.green,
+                    child:  Text(
+                    "20",
+                    style: GoogleFonts.acme(fontSize: 20),
                     ),
-                    Text(
-                  "20",
-                  style: GoogleFonts.acme(fontSize: 20),
+                  ),
+                  Container(
+                    color: Colors.red,
+                    child:  Text(
+                    "30",
+                    style: GoogleFonts.acme(fontSize: 20),
                     ),
-                    Text(
-                  "30",
-                  style: GoogleFonts.acme(fontSize: 20),
-                    ),
+                  ),  
                 ],
               )
             ],
