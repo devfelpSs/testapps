@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         style: GoogleFonts.roboto(fontSize: 30),
         ),
       ),
-      body: Container(
+      body: Container( //Container principal
         color: const Color.fromRGBO(195, 221, 255, 01), //setando container com cores RGB e com opacitade
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
