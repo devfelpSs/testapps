@@ -33,19 +33,29 @@ class _HomePageState extends State<HomePage> {
                 Text(
                 "Ações do usuario",
                 style: GoogleFonts.acme(fontSize: 20),
-            ),
-              Text(
-              "Número gerado: $numeroGerado",
-              style: GoogleFonts.acme(fontSize: 20),
-            ),
-              Text(
-                "Foi clicado: $quantidadedeCliques vezes",
+              ),
+                Text(
+                "Número gerado: $numeroGerado",
                 style: GoogleFonts.acme(fontSize: 20),
               ),
-              Row(children: [Text(
-                "Foi clicado: $quantidadedeCliques vezes",
-                style: GoogleFonts.acme(fontSize: 20),
-                  ),
+                Text(
+                  "Foi clicado: $quantidadedeCliques vezes",
+                  style: GoogleFonts.acme(fontSize: 20),
+                ),
+                Row(
+                  children: [
+                  Text(
+                  "10",
+                  style: GoogleFonts.acme(fontSize: 20),
+                    ),
+                    Text(
+                  "20",
+                  style: GoogleFonts.acme(fontSize: 20),
+                    ),
+                    Text(
+                  "30",
+                  style: GoogleFonts.acme(fontSize: 20),
+                    ),
                 ],
               )
             ],
