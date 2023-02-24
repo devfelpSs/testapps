@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Container(
-        color: const Color.fromRGBO(224, 224, 224, 02),
+        color: const Color.fromRGBO(195, 221, 255, 01), //setando container com cores RGB e com opacitade
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
