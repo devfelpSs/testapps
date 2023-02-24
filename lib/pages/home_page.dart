@@ -42,9 +42,15 @@ class _HomePageState extends State<HomePage> {
                 "Foi clicado: $quantidadedeCliques vezes",
                 style: GoogleFonts.acme(fontSize: 20),
               ),
-        ],
-      ),
-      ),
+              Row(children: [Text(
+                "Foi clicado: $quantidadedeCliques vezes",
+                style: GoogleFonts.acme(fontSize: 20),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
       floatingActionButton: FloatingActionButton(       //Função botao flutuante
         child: const Icon(Icons.add_box), onPressed: (){
           setState(() {
