@@ -18,12 +18,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Meu App", 
         style: GoogleFonts.roboto(fontSize: 30),
         ),
       ),
       body: Container(
-        color: Colors.amberAccent,
+        color: const Color.fromRGBO(224, 224, 224, 02),
         width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
