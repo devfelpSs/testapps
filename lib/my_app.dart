@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,7 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(primarySwatch: Colors.red,
+      textTheme: GoogleFonts.pacificoTextTheme()
+      ),
       home: const HomePage(),
     );
 
