@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -22,13 +20,13 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 100,
+              height: 100,
               ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.amber,
-              ),
+            const Icon(
+                  Icons.person, 
+                  size: 150,
+                  color: Colors.blueAccent, 
+                  ),
               const SizedBox(
                 height: 50,
               ),
@@ -36,14 +34,34 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: Colors.green,
+                color: const Color.fromARGB(255, 236, 241, 243),
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Informe seu e-mail:"),
+                child: Row(
+                  children: [
+                    Expanded(flex: 2, child: Text("Informe seu e-mail:")),
+                    Expanded(flex: 2, child: Text("e-mail")),
+                  ],
+                ),
               ),
-                            const SizedBox(
+                const SizedBox(
                 height: 20,
               ),
+
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                color: const Color.fromARGB(255, 236, 241, 241),
+                height: 30,
+                alignment: Alignment.center,
+                child: Row(
+                  children: [
+                    Expanded(flex: 2, child: Text("Informe a senha:")),
+                    Expanded(flex: 2, child: Text("senha")),
+                  ],
+                ),
+              ),
+              Expanded(child: Container()),
 
               Container(
                 width: double.infinity,
@@ -51,9 +69,21 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.green,
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Informe a senha:"),
+                child: const Text("Login"),
               ),
-            
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                color: Colors.grey,
+                height: 30,
+                alignment: Alignment.center,
+                child: const Text("Cadastro"),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
