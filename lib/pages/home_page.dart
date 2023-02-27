@@ -31,41 +31,76 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start, //alinhamento do bloco
             mainAxisAlignment: MainAxisAlignment.start,     //alinhamento da coluna
             children: [ 
-                Text(
-                "Ações do usuario",
-                style: GoogleFonts.acme(fontSize: 20),
-              ),
-                Text(
-                "Número gerado: $numeroGerado",
-                style: GoogleFonts.acme(fontSize: 20),
-              ),
-                Text(
-                  "Foi clicado: $quantidadedeCliques vezes",
-                  style: GoogleFonts.acme(fontSize: 20),
+              SizedBox(
+                child: Expanded(
+                  flex: 2,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    width: double.infinity,
+                    color: Colors.blue,
+                    child: Text(
+                    "Ações do usuario",
+                    style: GoogleFonts.acme(fontSize: 20),
+                    ),
+                  )
                 ),
+              ),
+              SizedBox(
+                child: Expanded(
+                  flex: 2,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    width: double.infinity,
+                    color: Colors.orange,
+                    child:Text(
+                      "Número gerado: $numeroGerado",
+                      style: GoogleFonts.acme(fontSize: 20),
+                    ),
+                  )),
+              ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    width: double.infinity,
+                    color: Colors.deepPurpleAccent,
+                    child: Text(
+                    "Foi clicado: $quantidadedeCliques vezes",
+                    style: GoogleFonts.acme(fontSize: 20),
+                    ),
+                )),
+
                 Row( //colocar dentro de um container
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                  Container(
-                    color: Colors.blue,
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                    color: Colors.red,
                     child: Text(
-                    "10",
+                    "Nome:",
                     style: GoogleFonts.acme(fontSize: 20),
                       ),
+                    )
                   ),
-                  Container(
-                    color: Colors.green,
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                    color: Colors.blue,
                     child:  Text(
-                    "20",
+                    "Felipe",
                     style: GoogleFonts.acme(fontSize: 20),
                     ),
+                    )
                   ),
-                  Container(
-                    color: Colors.red,
+                  Expanded(
+                    child: Container(
+                    color: Colors.green,
                     child:  Text(
                     "30",
                     style: GoogleFonts.acme(fontSize: 20),
                     ),
+                    )
                   ),  
                 ],
               )

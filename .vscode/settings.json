@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.shellIntegration.suggestEnabled": true,
+    "editor.snippetSuggestions": "top",
+    "emmet.showSuggestionsAsSnippets": true
+}
