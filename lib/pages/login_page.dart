@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.center,
                 child: Row(
                   children: const [
-                    Expanded(flex: 2, child: Text("Informe seu e-mail:", style: TextStyle(color: Colors.white),)),
+                    Expanded(flex: 2, child: Text("Informe seu e-mail:", style: TextStyle(color: Colors.purple),)),
                     Expanded(flex: 2, child: Text("e-mail", style: TextStyle(color: Colors.white),)),
                   ],
                 ),
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.center,
                 child: Row(
                   children: const [
-                    Expanded(flex: 2, child: Text("Informe a senha:", style: TextStyle(color: Colors.white),)),
+                    Expanded(flex: 2, child: Text("Informe a senha:", style: TextStyle(color: Colors.purple),)),
                     Expanded(flex: 2, child: Text("senha", style: TextStyle(color: Colors.white),)),
                   ],
                 ),
@@ -87,12 +87,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               Container(
+                decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(8.0)),
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: Colors.green,
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Login"),
+                child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300),), 
               ),
               Expanded(child: Container()),
 
