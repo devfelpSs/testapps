@@ -58,9 +58,9 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30,
                 alignment: Alignment.center,
                 child: Row(
-                  children: [
-                    Expanded(flex: 2, child: Text("Informe seu e-mail:")),
-                    Expanded(flex: 2, child: Text("e-mail")),
+                  children: const [
+                    Expanded(flex: 2, child: Text("Informe seu e-mail:", style: TextStyle(color: Colors.white),)),
+                    Expanded(flex: 2, child: Text("e-mail", style: TextStyle(color: Colors.white),)),
                   ],
                 ),
               ),
@@ -75,9 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30,
                 alignment: Alignment.center,
                 child: Row(
-                  children: [
-                    Expanded(flex: 2, child: Text("Informe a senha:")),
-                    Expanded(flex: 2, child: Text("senha")),
+                  children: const [
+                    Expanded(flex: 2, child: Text("Informe a senha:", style: TextStyle(color: Colors.white),)),
+                    Expanded(flex: 2, child: Text("senha", style: TextStyle(color: Colors.white),)),
                   ],
                 ),
               ),
