@@ -22,14 +22,27 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
               height: 100,
               ),
-            const Icon(
-                  Icons.person, 
-                  size: 150,
-                  color: Colors.blueAccent, 
-                  ),
-              const SizedBox(
-                height: 50,
+            Row(
+              children: [
+                Expanded(child: Container()),
+                Expanded(
+                  flex: 8,
+                  child: Image.network(
+                    "https://hermes.digitalinnovation.one/assets/diome/logo.png",
+                      height: 150,
+                    ),
+                ),
+                Expanded(child: Container()),
+              ],
+            ),
+            const SizedBox(
+                height: 20,
               ),
+
+               const Text("Já tem cadastro?"),
+               const SizedBox(height: 20),
+               const Text("Faça seu login e make the change_"),
+               const SizedBox(height: 40),
 
               Container(
                 width: double.infinity,
@@ -45,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
                 const SizedBox(
-                height: 20,
+                height: 5,
               ),
 
               Container(
@@ -61,7 +74,10 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Expanded(child: Container()),
+
+              const SizedBox(
+                height: 30,
+              ),
 
               Container(
                 width: double.infinity,
@@ -71,16 +87,27 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.center,
                 child: const Text("Login"),
               ),
+              Expanded(child: Container()),
+
               const SizedBox(
                 height: 10,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: Colors.grey,
+                color: const Color.fromARGB(255, 236, 241, 243),
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Cadastro"),
+                child: const Text("Esqueci minha senha"),
               ),
+
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                color: const Color.fromARGB(255, 236, 241, 243),
+                height: 30,
+                alignment: Alignment.center,
+                child: const Text("Criar conta"),
+              ),
+
               const SizedBox(
                 height: 20,
               ),
