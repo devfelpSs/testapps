@@ -9,6 +9,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  String email = "";
+  String senha = "";
+  bool isObscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -60,9 +65,12 @@ class _LoginPageState extends State<LoginPage> {
                   color: const Color(0x00212121),
                   height: 30,
                   alignment: Alignment.center,
-                  child: const TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
+                  child:  TextField(
+                      onChanged: (value){
+                        email = value;
+                      },
+                      style: const TextStyle(color: Colors.white),
+                      decoration: const InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
                         enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
@@ -81,18 +89,30 @@ class _LoginPageState extends State<LoginPage> {
                   color: const Color(0x00212121),
                   height: 30,
                   alignment: Alignment.center,
-                  child: const TextField(
-                    style: TextStyle(color: Colors.white),
+                  child: TextField(
+                    obscureText: isObscureText,
+                    onChanged: (value){
+                      senha = value;
+                    },
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 0),
-                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                      contentPadding: const EdgeInsets.only(top: 0),
+                      enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                      focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
                       hintText: "Senha", 
-                      hintStyle: TextStyle(color: Colors.white),
-                      prefixIcon: Icon(
+                      hintStyle: const TextStyle(color: Colors.white),
+                      prefixIcon: const Icon(
                       Icons.lock, color: Colors.purple),
-                      suffixIcon: Icon(
-                      Icons.visibility, color: Colors.white)
+                      suffixIcon: InkWell(
+                        onTap: (){
+                          setState(() {
+                          isObscureText = !isObscureText;
+                            
+                          });
+                        },
+                        child: Icon(isObscureText ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.white),
+                      )
                     ),
                   ),
                 ),
