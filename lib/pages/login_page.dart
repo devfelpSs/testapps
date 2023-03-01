@@ -92,11 +92,12 @@ class _LoginPageState extends State<LoginPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 alignment: Alignment.center,
                 //child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300),), 
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
+                child: SizedBox(          //criei uma caixa
+                  width: double.infinity, //que ocupa todo o espaço da tela
+                  child: TextButton(      //função botão
+                    onPressed: () {},     //ativo ao ser pressionado
+                    style: ButtonStyle(   //stylo do botão
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                       backgroundColor: MaterialStateProperty.all(Colors.purple)), 
                     child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 14),
                     )
