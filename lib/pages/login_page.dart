@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
-              height: 100,
+              height: 50,
               ),
             Row(
               children: [
@@ -39,9 +39,14 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
 
-               const Text("Já tem cadastro?"),
+               const Text(
+                "Já tem cadastro?", 
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+               ),
                const SizedBox(height: 20),
-               const Text("Faça seu login e make the change_"),
+               const Text("Faça seu login e make the change_",
+               style: TextStyle(fontSize: 14),
+               ),
                const SizedBox(height: 40),
 
               Container(
@@ -105,12 +110,10 @@ class _LoginPageState extends State<LoginPage> {
                 color: const Color.fromARGB(255, 236, 241, 243),
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Criar conta"),
+                child: const Text("Criar conta", style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),),
               ),
 
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 80),
             ],
           ),
         ),
