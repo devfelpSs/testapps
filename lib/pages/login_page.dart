@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                ),
                const SizedBox(height: 40),
 
-              Container(
+              Container(                //Container area email:
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 color: const Color(0x00212121),
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 15,
               ),
 
-              Container(
+              Container(                //Container area senha:
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 color: const Color(0x00212121),
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 30,
               ),
 
-              Container(
+              Container(                //Container area botão:
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 alignment: Alignment.center,
