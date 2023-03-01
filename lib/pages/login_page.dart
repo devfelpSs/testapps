@@ -57,15 +57,18 @@ class _LoginPageState extends State<LoginPage> {
                 color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
-                child: Row(
-                  children: const [
-                    Expanded(flex: 2, child: Text("Informe seu e-mail:", style: TextStyle(color: Colors.purple),)),
-                    Expanded(flex: 2, child: Text("e-mail", style: TextStyle(color: Colors.white),)),
-                  ],
-                ),
+                child: const TextField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(top: 0),
+                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                      hintText: "Email", hintStyle: TextStyle(color: Colors.white),
+                      prefixIcon: Icon(Icons.mail_outline, color: Colors.purple,)
+                    ),
+                  ), 
               ),
-                const SizedBox(
-                height: 5,
+               const SizedBox(
+                height: 15,
               ),
 
               Container(
@@ -74,24 +77,28 @@ class _LoginPageState extends State<LoginPage> {
                 color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
-                child: Row(
-                  children: const [
-                    Expanded(flex: 2, child: Text("Informe a senha:", style: TextStyle(color: Colors.purple),)),
-                    Expanded(flex: 2, child: Text("senha", style: TextStyle(color: Colors.white),)),
-                  ],
+                child: const TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(top: 0),
+                    enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                    focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
+                    hintText: "Senha", 
+                    hintStyle: TextStyle(color: Colors.white),
+                    prefixIcon: Icon(
+                    Icons.lock, color: Colors.purple),
+                    suffixIcon: Icon(
+                    Icons.visibility, color: Colors.white)
+                  ),
                 ),
               ),
-
               const SizedBox(
                 height: 30,
               ),
 
               Container(
-                //decoration: BoxDecoration(color: Colors.purple, borderRadius: BorderRadius.circular(8.0)),
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 alignment: Alignment.center,
-                //child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300),), 
                 child: SizedBox(          //criei uma caixa
                   width: double.infinity, //que ocupa todo o espaço da tela
                   child: TextButton(      //função botão
@@ -99,8 +106,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: ButtonStyle(   //stylo do botão
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                       backgroundColor: MaterialStateProperty.all(Colors.purple)), 
-                    child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 14),
-                    )
+                      child: const Text("ENTRAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 14),
+                    ),
                   ),
                 ),
               ),
