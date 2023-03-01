@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 236, 241, 243),
+        backgroundColor: Color(0x60212121),
         body: SizedBox(
           width: double.infinity,
           child: Column(
@@ -41,18 +41,20 @@ class _LoginPageState extends State<LoginPage> {
 
                const Text(
                 "Já tem cadastro?", 
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: Colors.white),
                ),
                const SizedBox(height: 20),
-               const Text("Faça seu login e make the change_",
-               style: TextStyle(fontSize: 14),
+               const Text("Faça seu login e make the change._",
+               style: TextStyle(fontSize: 14, color: 
+               Colors.white
+               ),
                ),
                const SizedBox(height: 40),
 
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: const Color.fromARGB(255, 236, 241, 243),
+                color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
                 child: Row(
@@ -69,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: const Color.fromARGB(255, 236, 241, 241),
+                color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
                 child: Row(
@@ -99,15 +101,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: const Color.fromARGB(255, 236, 241, 243),
+                color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Esqueci minha senha"),
+                child: const Text("Esqueci minha senha",
+                style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.w400),),
               ),
 
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: const Color.fromARGB(255, 236, 241, 243),
+                color: const Color(0x00212121),
                 height: 30,
                 alignment: Alignment.center,
                 child: const Text("Criar conta", style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),),
