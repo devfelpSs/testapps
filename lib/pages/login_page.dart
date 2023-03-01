@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/pages/main_page.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -133,10 +134,10 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity, //que ocupa todo o espaço da tela
                     child: TextButton(      //função botão
                       onPressed: () {
-                        if (emailController.text.trim() == "fsouzza88@gmail.com" && senhaController.text.trim() == "teste") {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Login efetuado com sucesso!")));
+                        if (emailController.text.trim() == "teste@gmail.com" && senhaController.text.trim() == "teste") {
+                          Navigator.pushReplacement(
+                            context, 
+                            MaterialPageRoute(builder: (context) => const MainPage()));
                         }else{
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
