@@ -10,15 +10,18 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  String email = "";
-  String senha = "";
+  var emailController = TextEditingController(text: "");
+  var senhaController = TextEditingController(text: "");
+
+
+
   bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0x60212121),
+        backgroundColor: const Color(0x60212121),
         body: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
@@ -66,8 +69,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: 30,
                   alignment: Alignment.center,
                   child:  TextField(
+                      controller: emailController,
                       onChanged: (value){
-                        email = value;
+                        debugPrint(value);
                       },
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
@@ -90,9 +94,10 @@ class _LoginPageState extends State<LoginPage> {
                   height: 30,
                   alignment: Alignment.center,
                   child: TextField(
+                    controller: senhaController,
                     obscureText: isObscureText,
                     onChanged: (value){
-                      senha = value;
+                      debugPrint(value);
                     },
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
@@ -127,7 +132,17 @@ class _LoginPageState extends State<LoginPage> {
                   child: SizedBox(          //criei uma caixa
                     width: double.infinity, //que ocupa todo o espaço da tela
                     child: TextButton(      //função botão
-                      onPressed: () {},     //ativo ao ser pressionado
+                      onPressed: () {
+                        if (emailController.text.trim() == "fsouzza88@gmail.com" && senhaController.text.trim() == "teste") {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Login efetuado com sucesso!")));
+                        }else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Erro ao efetuar login")));
+                        }
+                      },     //ativo ao ser pressionado
                       style: ButtonStyle(   //stylo do botão
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                         backgroundColor: MaterialStateProperty.all(Colors.purple)), 
