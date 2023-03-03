@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/pages/dados_cadastrais.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -29,7 +30,9 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     width: double.infinity,
                     child: const Text("Dados Cadastrais")),
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisPage()));
+                    },
                   ),
                   const Divider(),
                   InkWell(
