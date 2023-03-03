@@ -11,7 +11,7 @@ class _Pagina2PageState extends State<Pagina2Page> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.yellowAccent,
+      color: Colors.deepOrange,
     );
   }
 }
