@@ -30,8 +30,12 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     width: double.infinity,
                     child: const Text("Dados Cadastrais")),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisPage()));
+                  onTap: (){
+                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisPage(
+                        texto: "Meus dados",
+                        dados: ["Nome", "Endereço", "Tel"],
+                      )));
                     },
                   ),
                   const Divider(),
@@ -56,6 +60,8 @@ class _MainPageState extends State<MainPage> {
               ),
           ),
         ),
+        body: PageView(children: [
+        ],),
         ),
     );
   }
