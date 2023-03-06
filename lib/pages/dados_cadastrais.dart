@@ -11,7 +11,8 @@ class DadosCadastraisPage extends StatefulWidget {
 }
 
 class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
-  TextEditingController nomeController = TextEditingController(text: "");
+  var nomeController = TextEditingController(text: "");
+  var dataNascimentoController = TextEditingController(text: "");
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,22 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
           ),
           TextField(
             controller: nomeController,
+          ),
+          SizedBox(height: 10,),
+          Text("Data de nascimento"),
+          TextField(
+            controller: dataNascimentoController,
+            readOnly: true,
+            onTap: () async {
+              var data = await showDatePicker(
+                context: context,
+                initialDate: DateTime(2000,1,1), 
+                firstDate: DateTime(1900,1,1), 
+                lastDate: DateTime(2023,10,23));
+              if (data != null){
+                dataNascimentoController.text = data.toString();
+              };
+            },
           ),
           TextButton(
             onPressed: () {
