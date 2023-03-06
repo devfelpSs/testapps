@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:testapp/shared/widgets/text_label.dart';
 
 
 class DadosCadastraisPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class DadosCadastraisPage extends StatefulWidget {
 class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var nomeController = TextEditingController(text: "");
   var dataNascimentoController = TextEditingController(text: "");
+  DateTime? dataNascimento;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +23,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         child: Column(
-          children: [Text("Nome", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-          ),
-          TextField(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TextLabel(texto: "Nome"),
+            TextField(
             controller: nomeController,
           ),
-          SizedBox(height: 10,),
-          Text("Data de nascimento"),
+          const SizedBox(height: 10,),
+          const TextLabel(texto: "Data de nascimento"),
           TextField(
             controller: dataNascimentoController,
             readOnly: true,
@@ -39,12 +42,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                 lastDate: DateTime(2023,10,23));
               if (data != null){
                 dataNascimentoController.text = data.toString();
+                dataNascimento = data;
               };
             },
           ),
           TextButton(
             onPressed: () {
               print(nomeController.text);
+              print(dataNascimento);
           },
           child: Text("Salvar"),
           )
