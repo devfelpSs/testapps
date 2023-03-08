@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:testapp/repositories/nivel_repository.dart';
 import 'package:testapp/shared/widgets/text_label.dart';
 
 
@@ -15,6 +16,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var nomeController = TextEditingController(text: "");
   var dataNascimentoController = TextEditingController(text: "");
   DateTime? dataNascimento;
+  var nivelRepository = NivelRepository();
+  var niveis = [];
+
+@override void initState() {
+    // TODO: implement initState
+    niveis = nivelRepository.retornaNiveis();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,6 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
             TextField(
             controller: nomeController,
           ),
-          const SizedBox(height: 10,),
           const TextLabel(texto: "Data de nascimento"),
           TextField(
             controller: dataNascimentoController,
@@ -43,9 +51,24 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               if (data != null){
                 dataNascimentoController.text = data.toString();
                 dataNascimento = data;
-              };
+              }
             },
           ),
+          const TextLabel(texto: "Nivel de experiência"),
+
+        Column(
+          children: niveis
+            .map((nivel) => RadioListTile(
+              title: const Text("Iniciante"),
+              value: "Iniciante",
+              groupValue: "nivel experiencia", 
+              onChanged: (value) {
+                print(value);
+              },
+            ))
+            .toList(),
+        ),
+  
           TextButton(
             onPressed: () {
               print(nomeController.text);
