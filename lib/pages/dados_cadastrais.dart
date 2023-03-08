@@ -21,9 +21,11 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var linguagensRepoistory = LinguagensRepository();
   var niveis = [];
   var linguagens = [];
+  var linguagensSelecionadas = [];
   var nivelSelecionado = "";
 
 @override void initState() {
+    // ignore: todo
     // TODO: implement initState
     niveis = nivelRepository.retornaNiveis();
     linguagens = linguagensRepoistory.retornaLinguagens();
@@ -69,7 +71,6 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               value: nivel.toString(),
               groupValue: nivelSelecionado, 
               onChanged: (value) {
-                print(value);
                 setState(() {
                   nivelSelecionado = value.toString();  
                 });
@@ -80,18 +81,29 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
           const TextLabel(texto: "Linguagens Preferidas"),
 
           Column(children:
-          linguagens.map((e) => CheckboxListTile(
-            title: Text(e), 
+          linguagens.map((linguagem) => CheckboxListTile(
+            dense: true,
+            title: Text(linguagem), 
             value: false, 
-            onChanged: (value){})).toList() 
+            onChanged: (bool? value){
+              if (value!) {
+                setState(() {
+                  linguagensSelecionadas.add(linguagem);
+                  
+                });
+
+              }else{
+                setState(() {
+                  linguagensSelecionadas.remove(linguagem);  
+                });
+              }
+            })).toList() 
           ,),
   
           TextButton(
             onPressed: () {
-              print(nomeController.text);
-              print(dataNascimento);
           },
-          child: Text("Salvar"),
+          child: const Text("Salvar"),
           )
         ],
         ),
