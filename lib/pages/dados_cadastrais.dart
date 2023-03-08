@@ -23,6 +23,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var linguagens = [];
   var linguagensSelecionadas = [];
   var nivelSelecionado = "";
+  var salarioEscolhido = 0;
 
 @override void initState() {
     // ignore: todo
@@ -84,14 +85,12 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
           linguagens.map((linguagem) => CheckboxListTile(
             dense: true,
             title: Text(linguagem), 
-            value: false, 
+            value: linguagensSelecionadas.contains(linguagem), 
             onChanged: (bool? value){
               if (value!) {
                 setState(() {
                   linguagensSelecionadas.add(linguagem);
-                  
                 });
-
               }else{
                 setState(() {
                   linguagensSelecionadas.remove(linguagem);  
@@ -99,7 +98,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               }
             })).toList() 
           ,),
-  
+
+           const TextLabel(texto: "Pretenção Salarial"),
+           Slider(
+            min: 0,
+            max: 10000, 
+            value: 5000, 
+            onChanged: (double value) {}),
+
           TextButton(
             onPressed: () {
           },
