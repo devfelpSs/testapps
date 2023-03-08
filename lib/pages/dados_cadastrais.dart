@@ -18,6 +18,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   DateTime? dataNascimento;
   var nivelRepository = NivelRepository();
   var niveis = [];
+  var nivelSelecionado = "";
 
 @override void initState() {
     // TODO: implement initState
@@ -59,11 +60,16 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
         Column(
           children: niveis
             .map((nivel) => RadioListTile(
-              title: const Text("Iniciante"),
-              value: "Iniciante",
-              groupValue: "nivel experiencia", 
+              dense: true,
+              title: Text(nivel.toString()),
+              selected: nivelSelecionado == nivel,
+              value: nivel.toString(),
+              groupValue: nivelSelecionado, 
               onChanged: (value) {
                 print(value);
+                setState(() {
+                  nivelSelecionado = value.toString();  
+                });
               },
             ))
             .toList(),
