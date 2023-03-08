@@ -26,6 +26,9 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   double salarioEscolhido = 0;
   int tempoExperiencia = 0;
 
+  bool salvando = false;
+
+
 @override void initState() {
     // ignore: todo
     // TODO: implement initState
@@ -51,7 +54,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
       appBar: AppBar(title: const Text("Meus dados"),),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: ListView(
+        child: salvando ? const Center(child: CircularProgressIndicator()) : ListView(
           children: [
             const TextLabel(texto: "Nome"),
             TextField(
@@ -135,6 +138,52 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
 
           TextButton(
             onPressed: () {
+              setState(() {
+                salvando = false;
+              });
+              if (nomeController.text.trim().length < 3) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("O nome deve ser preenchido")));
+                  return;
+              }
+              if (dataNascimento == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Data de Nascimento inválida")));
+                  return;
+              }
+              if (nivelSelecionado.trim() == '') {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("O nível deve ser selecionado")));
+                  return;
+              }
+              if (linguagensSelecionadas.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Deve ser selecionado ao menos 1 linguagem")));
+                  return;
+              }
+              if (tempoExperiencia == 0) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Deve ter ao menos 1 ano de experiência")));
+                  return;
+              }
+
+              if (salarioEscolhido == 0) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("A pretenção salarial deve ser maior que 0")));
+                  return;
+              }
+
+              setState(() {
+                  salvando = true;
+                });
+
+              Future.delayed(const Duration(seconds: 3), (){
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")))
+                setState(() {
+                  salvando = false;
+                });
+                Navigator.pop(context);
+              });
           },
           child: const Text("Salvar"),
           )
