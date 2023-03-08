@@ -24,6 +24,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var linguagensSelecionadas = [];
   var nivelSelecionado = "";
   double salarioEscolhido = 0;
+  int tempoExperiencia = 0;
 
 @override void initState() {
     // ignore: todo
@@ -31,6 +32,17 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
     niveis = nivelRepository.retornaNiveis();
     linguagens = linguagensRepoistory.retornaLinguagens();
     super.initState();
+  }
+
+  List<DropdownMenuItem<int>> returnItens(int quantidadeMaxima){
+    var itens = <DropdownMenuItem<int>>[];
+    for (var i = 0; i <= quantidadeMaxima; i++ ){
+      itens.add(DropdownMenuItem(
+        value: i,
+        child: Text(i.toString()),
+        ));
+    }
+    return itens;
   }
 
   @override
@@ -98,6 +110,17 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               }
             })).toList() 
           ,),
+
+          const TextLabel(texto: "Tempo de Experiência"),
+          DropdownButton(
+            value: tempoExperiencia,
+            isExpanded: true,
+            items:  returnItens(50),
+            onChanged: (value){
+              setState(() {
+                tempoExperiencia = int.parse(value.toString());
+              });
+            }),
 
            TextLabel(texto: "Pretenção Salarial: R\$ ${salarioEscolhido.round().toString()}"),
            Slider(
