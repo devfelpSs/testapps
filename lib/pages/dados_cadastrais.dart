@@ -72,8 +72,15 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                 });
               },
             ))
-            .toList(),
-        ),
+            .toList(),),
+
+          const TextLabel(texto: "Linguagens Preferidas"),
+          CheckboxListTile(
+            title: Text("Flutter"),
+            value: true, onChanged: (value){
+
+          }),
+
   
           TextButton(
             onPressed: () {
