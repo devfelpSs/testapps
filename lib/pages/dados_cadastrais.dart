@@ -178,7 +178,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                 });
 
               Future.delayed(const Duration(seconds: 3), (){
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")))
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")));
                 setState(() {
                   salvando = false;
                 });
