@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/pages/dados_cadastrais.dart';
 import 'package:testapp/pages/pagina1.dart';
 import 'package:testapp/pages/pagina2.dart';
 import 'package:testapp/pages/pagina3.dart';
@@ -25,7 +24,7 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(title: const Text("Main Page"),
         centerTitle: true,
         ),
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         // ignore: prefer_const_literals_to_create_immutables
         body: Column(
           children: [
