@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:testapp/pages/login_page.dart';
 
 import '../../pages/dados_cadastrais.dart';
 
@@ -72,23 +73,25 @@ class CustomDrawer extends StatelessWidget {
                     ],
                   )),
                   onTap: (){
-                    showModalBottomSheet(context: context, 
-                      builder: (BuildContext bc) {
-                      return Container(
-                        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-                        child: Column(
-                          children: const [
-                            Text("Termos de uso e privacidade", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                            SizedBox(height: 20,),
-                            Text(
-                              "A nível organizacional, a constante divulgação das informações obstaculiza a apreciação da importância do processo de comunicação como um todo. O cuidado em identificar pontos críticos na contínua expansão de nossa atividade oferece uma interessante oportunidade para verificação dos índices pretendidos. O incentivo ao avanço tecnológico, assim como o consenso sobre a necessidade de qualificação deve passar por modificações independentemente do impacto na agilidade decisória. As experiências acumuladas demonstram que a valorização de fatores subjetivos não pode mais se dissociar de todos os recursos funcionais envolvidos. Podemos já vislumbrar o modo pelo qual o aumento do diálogo entre os diferentes setores produtivos afeta positivamente a correta previsão dos níveis de motivação departamental.", 
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
+                    showDialog(context: context, 
+                    builder: (BuildContext bc){
+                      return AlertDialog(
+                        alignment: Alignment.center,
+                        elevation: 8,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        title: const Text("Termos de uso e Privacidade", style: TextStyle(fontWeight: FontWeight.bold),),
+                        content: Wrap(
+                          children: const [Text(" Podemos já vislumbrar o modo pelo qual a execução dos pontos do programa desafia a capacidade de equalização dos modos de operação convencionais. A nível organizacional, a expansão dos mercados mundiais estende o alcance e a importância das condições financeiras e administrativas exigidas. Todavia, o desenvolvimento contínuo de distintas formas de atuação apresenta tendências no sentido de aprovar a manutenção de alternativas às soluções ortodoxas. A prática cotidiana prova que o comprometimento entre as equipes faz parte de um processo de gerenciamento do sistema de formação de quadros que corresponde às necessidades.")],
                         ),
+                        actions: [
+                          TextButton(onPressed: (){
+                            Navigator.pop(context);
+                          }, 
+                          child: const Text("OK"))
+                        ],
                       );
-                    });
+                    }
+                    );
                   },
                 ),
                 const Divider(),
@@ -126,10 +129,13 @@ class CustomDrawer extends StatelessWidget {
                       context: context,
                       builder: (BuildContext bc) {
                       return AlertDialog(
-                        title: const Text("Atenção"),
+                        alignment: Alignment.center,
+                        elevation: 8,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        title: const Text("Atenção", style: TextStyle(fontWeight: FontWeight.bold)),
                         content: Wrap(
-                          children: [
-                            const Text("Deseja realmente sair?"),
+                          children: const [
+                            Text("Deseja realmente sair?"),
                           ],
                         ),
                         actions: [
@@ -137,7 +143,8 @@ class CustomDrawer extends StatelessWidget {
                             Navigator.pop(context);
                           }, child: const Text("Não")), //Acionada pelo o usuario, cancela a operação
                           TextButton(onPressed: (){
-                            Navigator.pushReplacement(context, newRoute)    //Limpa a stack inteira e envia o usuario para a tela de login novamente
+                            Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => const LoginPage()));    //Limpa a stack inteira e envia o usuario para a tela de login novamente
                           }, child: const Text("Sim")),
                         ],
                       ); 
