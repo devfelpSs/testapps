@@ -105,6 +105,45 @@ class CustomDrawer extends StatelessWidget {
                   )),
                   onTap: (){},
                 ),
+                const Divider(),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Divider(),
+                InkWell(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  width: double.infinity,
+                  child: Row(
+                    children: const [
+                      Icon(Icons.exit_to_app),
+                      SizedBox(width: 5,),
+                      Text("Sair"),
+                    ],
+                  )),
+                  onTap: (){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext bc) {
+                      return AlertDialog(
+                        title: const Text("Atenção"),
+                        content: Wrap(
+                          children: [
+                            const Text("Deseja realmente sair?"),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(onPressed: (){
+                            Navigator.pop(context);
+                          }, child: const Text("Não")), //Acionada pelo o usuario, cancela a operação
+                          TextButton(onPressed: (){
+                            Navigator.pushReplacement(context, newRoute)    //Limpa a stack inteira e envia o usuario para a tela de login novamente
+                          }, child: const Text("Sim")),
+                        ],
+                      ); 
+                    });
+                  }
+                ),
               ],
             ),
         );
