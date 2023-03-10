@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/pages/pagina1.dart';
+import 'package:testapp/pages/card_page.dart';
+import 'package:testapp/pages/page_teste.dart';
 import 'package:testapp/pages/pagina2.dart';
 import 'package:testapp/pages/pagina3.dart';
 
@@ -38,9 +39,10 @@ class _MainPageState extends State<MainPage> {
                   });
                 },
                 children: const [
-                Pagina1Page(),
+                CardPage(),
                 Pagina2Page(),
-                Pagina3Page(),
+                //Pagina3Page(),
+                MyTeste(),
                 ],
               ),
             ),
@@ -50,8 +52,9 @@ class _MainPageState extends State<MainPage> {
               },
               currentIndex: posicaoPagina, items: const [
               BottomNavigationBarItem(label: "Page1", icon: Icon(Icons.home)),
-              BottomNavigationBarItem(label: "Page2", icon: Icon(Icons.add)),
-              BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.person)),
+              BottomNavigationBarItem(label: "Page2", icon: Icon(Icons.find_in_page)),
+              //BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.add)),
+              BottomNavigationBarItem(label: "Teste", icon: Icon(Icons.widgets)),
             ])
           ],
         ),

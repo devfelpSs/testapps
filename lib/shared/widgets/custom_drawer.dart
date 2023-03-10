@@ -50,7 +50,7 @@ class CustomDrawer extends StatelessWidget {
                   width: double.infinity,
                   child: Row(
                     children: const [
-                      Icon(Icons.person),
+                      Icon(Icons.account_circle),
                       SizedBox(width: 5,),
                       Text("Dados Cadastrais"),
                     ],
@@ -102,7 +102,7 @@ class CustomDrawer extends StatelessWidget {
                   width: double.infinity,
                   child: Row(
                     children: const [
-                      Icon(Icons.info),
+                      Icon(Icons.settings),
                       SizedBox(width: 5,),
                       Text("Configurações"),
                     ],
