@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:testapp/pages/card_page.dart';
 import 'package:testapp/pages/page_teste.dart';
 import 'package:testapp/pages/pagina2.dart';
-import 'package:testapp/pages/pagina3.dart';
 
 import '../shared/widgets/custom_drawer.dart';
 
