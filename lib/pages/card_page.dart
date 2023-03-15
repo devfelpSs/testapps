@@ -20,8 +20,13 @@ class _CardPageState extends State<CardPage> {
 @override
   void initState() async{
     super.initState();
-    cardDetail = await cardDetailRepository.get();
+    carregarDados();
   }
+
+void carregarDados() async {
+  cardDetail = await cardDetailRepository.get();
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class _CardPageState extends State<CardPage> {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           width: double.infinity,
-          child: InkWell(
+          child: cardDetail == null ? LinearProgressIndicator() : InkWell( // "?" é igual a "então", e ":" é senão
             onTap: (){
               Navigator.push(context, 
               MaterialPageRoute(builder: (context) => CardDetailPage(
