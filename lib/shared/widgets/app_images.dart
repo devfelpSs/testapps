@@ -1,3 +1,5 @@
+//Definindo uma classe aonde será compartilhada as imagens abaixo com todos os arquivos desse projeto:
+
 class AppImages {
   static String get profile1 => "lib/images/profile2.png";
   static String get profile2 => "lib/images/profile2.png";
