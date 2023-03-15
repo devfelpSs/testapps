@@ -18,12 +18,15 @@ class _CardPageState extends State<CardPage> {
   CardDetailRepository cardDetailRepository = CardDetailRepository();
 
 @override
-  void initState() async{
+  void initState(){
     super.initState();
     carregarDados();
   }
 
 void carregarDados() async {
+  setState(() {
+    
+  });
   cardDetail = await cardDetailRepository.get();
 }
 
