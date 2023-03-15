@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/card_page.dart';
 import 'package:testapp/pages/page_teste.dart';
-import 'package:testapp/pages/pagina2.dart';
+import 'package:testapp/pages/image_assets.dart';
 
 import '../shared/widgets/custom_drawer.dart';
 
@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 children: const [
                 CardPage(),
-                Pagina2Page(),
+                ImageAssetsPage(),
                 //Pagina3Page(),
                 MyTeste(),
                 ],

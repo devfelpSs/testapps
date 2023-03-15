@@ -11,23 +11,21 @@ class CardPage extends StatefulWidget {
   State<CardPage> createState() => _CardPageState();
 }
 
- 
+//Stateless também não pode ter async
 
 class _CardPageState extends State<CardPage> {
   CardDetail? cardDetail;
   CardDetailRepository cardDetailRepository = CardDetailRepository();
 
 @override
-  void initState(){
+  void initState(){ //init state não pode ter async
     super.initState();
     carregarDados();
   }
 
 void carregarDados() async {
-  setState(() {
-    
-  });
   cardDetail = await cardDetailRepository.get();
+  setState(() {});
 }
 
 
@@ -38,7 +36,7 @@ void carregarDados() async {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           width: double.infinity,
-          child: cardDetail == null ? LinearProgressIndicator() : InkWell( // "?" é igual a "então", e ":" é senão
+          child: cardDetail == null ? const LinearProgressIndicator() : InkWell( // "?" é igual a "então", e ":" é senão
             onTap: (){
               Navigator.push(context, 
               MaterialPageRoute(builder: (context) => CardDetailPage(
