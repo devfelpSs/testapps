@@ -25,6 +25,11 @@ class _ImageAssetsPageState extends State<ImageAssetsPage> {
           AppImages.profile3,
           height: 50,
           ),
+        /*Outra forma diferente de escrever o codigo acima: */
+        Image.asset(AppImages.montain1, height: 50,),
+        Image.asset(AppImages.montain2, height: 50,),
+        Image.asset(AppImages.montain3,height: 50,),
+        Image.asset(AppImages.montain4, height: 50,),
       ],
     );
   }
