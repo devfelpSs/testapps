@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/card_page.dart';
-import 'package:testapp/pages/page_teste.dart';
+//import 'package:testapp/pages/page_teste.dart';
 import 'package:testapp/pages/image_assets.dart';
-
+import 'package:testapp/pages/list_view_h.dart';
 import '../shared/widgets/custom_drawer.dart';
 
 
@@ -40,8 +40,8 @@ class _MainPageState extends State<MainPage> {
                 children: const [
                 CardPage(),
                 ImageAssetsPage(),
-                //Pagina3Page(),
-                MyTeste(),
+                ListViewH(),
+                //MyTeste(),
                 ],
               ),
             ),
@@ -53,11 +53,14 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(label: "Page1", icon: Icon(Icons.home)),
               BottomNavigationBarItem(label: "Page2", icon: Icon(Icons.find_in_page)),
               //BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.add)),
-              BottomNavigationBarItem(label: "Teste", icon: Icon(Icons.widgets)),
+              BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.widgets)),
             ])
           ],
         ),
       ),
     );
   }
+}
+
+class Pagina3Page {
 }
