@@ -4,6 +4,7 @@ import 'package:testapp/pages/card_page.dart';
 import 'package:testapp/pages/image_assets.dart';
 import 'package:testapp/pages/list_view.dart';
 import 'package:testapp/pages/list_view_h.dart';
+import 'package:testapp/pages/tarefa_page.dart';
 import '../shared/widgets/custom_drawer.dart';
 
 
@@ -43,6 +44,7 @@ class _MainPageState extends State<MainPage> {
                 ImageAssetsPage(),
                 ListViewPage(),
                 ListViewHorizontal(),
+                TarefaPage(),
                 //MyTeste(),
                 ],
               ),
@@ -57,7 +59,8 @@ class _MainPageState extends State<MainPage> {
               BottomNavigationBarItem(label: "Page2", icon: Icon(Icons.find_in_page)),
               //BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.add)),
               BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.widgets)),
-              BottomNavigationBarItem(label: "Page4", icon: Icon(Icons.list)),
+              BottomNavigationBarItem(label: "Page4", icon: Icon(Icons.image)),
+              BottomNavigationBarItem(label: "Tarefas", icon: Icon(Icons.list)),
             ])
           ],
         ),
