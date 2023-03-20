@@ -24,7 +24,11 @@ class _TarefaPageState extends State<TarefaPage> {
   }
 
   void obterTarefas() async {
-    _tarefas = await tarefaRepository.listar();
+    if(apenasNaoConcluidos){
+    _tarefas = await tarefaRepository.listarNaoConcluidas();
+    }else{
+      _tarefas = await tarefaRepository.listar();
+    }
     setState(() {});
   }
 
@@ -83,13 +87,20 @@ class _TarefaPageState extends State<TarefaPage> {
                 itemCount: _tarefas.length,
                 itemBuilder: (BuildContext bc, int index){
                   var tarefa = _tarefas[index];
-                  return ListTile(
-                    title: Text(tarefa.getDescricao()),
-                    trailing: Switch(onChanged: (bool value) async {
-                      await tarefaRepository.alterar(tarefa.getId(), value);
-                      obterTarefas();
-                    }, value: tarefa.getConcluido()),
-                    );
+                  return Dismissible(
+                    onDismissed: (DismissDirection dismissDirection) async {
+                     await tarefaRepository.remove(tarefa.id);
+                     obterTarefas();
+                    },
+                    key: Key(tarefa.id),
+                    child: ListTile(
+                      title: Text(tarefa.descricao),
+                      trailing: Switch(onChanged: (bool value) async {
+                        await tarefaRepository.alterar(tarefa.id, value);
+                        obterTarefas();
+                      }, value: tarefa.concluido),
+                      ),
+                  );
                 },
               ),
             ),
