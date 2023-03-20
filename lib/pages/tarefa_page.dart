@@ -13,7 +13,19 @@ class TarefaPage extends StatefulWidget {
 
 class _TarefaPageState extends State<TarefaPage> {
   var tarefaRepository = TarefaRepository();
+  var _tarefas = const <Tarefa>[];
   var descricaoController = TextEditingController();
+
+  @override
+  void initState(){
+    super.initState();
+    obterTarefas();
+  }
+
+  void obterTarefas() async {
+    _tarefas = await tarefaRepository.listar();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +47,21 @@ class _TarefaPageState extends State<TarefaPage> {
                   }, 
                   child: const Text("Cancelar")), //Botão de cancelar
                   
-                  TextButton(onPressed: (){
-                    tarefaRepository.adicionart(Tarefa(descricaoController.text, false));
+                  TextButton(onPressed: ()async {
+                    await tarefaRepository.adicionart(Tarefa(descricaoController.text, false));
                     Navigator.pop(context);
+                    setState(() {});
                     }, child: const Text("Salvar")), //Botão de salvar e sem nenhuma operação ao ser pressionado
                 ],
               );
           });
         },
       ),
-      body: Container());
+      body: ListView.builder(
+        itemCount: _tarefas.length,
+        itemBuilder: (BuildContext bc, int index){
+          return const Text("Flutter");
+        },
+      ));
   }
 }
