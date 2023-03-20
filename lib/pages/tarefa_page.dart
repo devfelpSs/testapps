@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/model/tarefa.dart';
+
+import '../repositories/tarefa_repository.dart';
 
 
 class TarefaPage extends StatefulWidget {
@@ -9,6 +12,7 @@ class TarefaPage extends StatefulWidget {
 }
 
 class _TarefaPageState extends State<TarefaPage> {
+  var tarefaRepository = TarefaRepository();
   var descricaoController = TextEditingController();
 
   @override
@@ -32,7 +36,7 @@ class _TarefaPageState extends State<TarefaPage> {
                   child: const Text("Cancelar")), //Botão de cancelar
                   
                   TextButton(onPressed: (){
-                    print(descricaoController.text);
+                    tarefaRepository.adicionart(Tarefa(descricaoController.text, false));
                     Navigator.pop(context);
                     }, child: const Text("Salvar")), //Botão de salvar e sem nenhuma operação ao ser pressionado
                 ],
