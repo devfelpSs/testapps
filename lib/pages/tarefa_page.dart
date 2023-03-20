@@ -15,6 +15,7 @@ class _TarefaPageState extends State<TarefaPage> {
   var tarefaRepository = TarefaRepository();
   var _tarefas = const <Tarefa>[];
   var descricaoController = TextEditingController();
+  var apenasNaoConcluidos = false;
 
   @override
   void initState(){
@@ -24,6 +25,7 @@ class _TarefaPageState extends State<TarefaPage> {
 
   void obterTarefas() async {
     _tarefas = await tarefaRepository.listar();
+    setState(() {});
   }
 
 
@@ -44,11 +46,13 @@ class _TarefaPageState extends State<TarefaPage> {
                   TextButton(
                     onPressed: (){
                       Navigator.pop(context); //Cancela a operação
-                  }, 
-                  child: const Text("Cancelar")), //Botão de cancelar
+                    }, 
+                    child: const Text("Cancelar")), //Botão de cancelar
                   
-                  TextButton(onPressed: ()async {
-                    await tarefaRepository.adicionart(Tarefa(descricaoController.text, false));
+                  TextButton(
+                    onPressed: ()async {
+                    await tarefaRepository.adicionart(
+                      Tarefa(descricaoController.text, false));
                     Navigator.pop(context);
                     setState(() {});
                     }, child: const Text("Salvar")), //Botão de salvar e sem nenhuma operação ao ser pressionado
@@ -57,11 +61,40 @@ class _TarefaPageState extends State<TarefaPage> {
           });
         },
       ),
-      body: ListView.builder(
-        itemCount: _tarefas.length,
-        itemBuilder: (BuildContext bc, int index){
-          return const Text("Flutter");
-        },
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Apenas não concluidos", style: TextStyle(fontSize: 18),),
+                  Switch(value: apenasNaoConcluidos, onChanged: (bool value){
+                    apenasNaoConcluidos = value;
+                    obterTarefas();
+                    })
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _tarefas.length,
+                itemBuilder: (BuildContext bc, int index){
+                  var tarefa = _tarefas[index];
+                  return ListTile(
+                    title: Text(tarefa.getDescricao()),
+                    trailing: Switch(onChanged: (bool value) async {
+                      await tarefaRepository.alterar(tarefa.getId(), value);
+                      obterTarefas();
+                    }, value: tarefa.getConcluido()),
+                    );
+                },
+              ),
+            ),
+          ],
+        ),
       ));
   }
 }

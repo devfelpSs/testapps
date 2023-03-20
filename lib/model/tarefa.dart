@@ -11,7 +11,7 @@ class Tarefa {
     return _id;
   }
 
-  String getDescricao(descricao) {
+  String getDescricao() {
     return _descricao;
   }
 
@@ -19,7 +19,7 @@ class Tarefa {
     _descricao = descricao;
   }
   
-  bool getConcluido(concluido) {
+  bool getConcluido() {
     return _concluido;
   }
 
