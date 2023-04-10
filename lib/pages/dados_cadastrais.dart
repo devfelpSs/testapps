@@ -68,7 +68,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               var data = await showDatePicker(
                 context: context,
                 initialDate: DateTime(2000,1,1), 
-                firstDate: DateTime(1900,1,1), 
+                firstDate: DateTime(1970,1,1), 
                 lastDate: DateTime(2023,10,23));
               if (data != null){
                 dataNascimentoController.text = data.toString();
