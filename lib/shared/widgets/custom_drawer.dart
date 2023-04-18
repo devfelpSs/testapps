@@ -1,5 +1,6 @@
 //Utilizar esse arquivo para construir o app...
 import 'package:flutter/material.dart';
+import 'package:testapp/pages/configuracoes_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios_page.dart';
 
@@ -131,7 +132,15 @@ class CustomDrawer extends StatelessWidget {
                       Text("Configurações"),
                     ],
                   )),
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (bc) =>
+                        const ConfiguracoesPage()), 
+                    );
+                  },
                 ),
                 const Divider(),
                 const SizedBox(
