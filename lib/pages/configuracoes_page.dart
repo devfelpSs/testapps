@@ -19,7 +19,15 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(centerTitle: true,title: const Text("Configurações")),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Configurações"),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.settings,),
+              onPressed: (){},) //Faz alguma coisa dentro das chaves
+          ],
+          ),
       body: Container(
         child: ListView(
         children: [
