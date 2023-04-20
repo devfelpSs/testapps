@@ -180,5 +180,4 @@ class AppStorageService {
     return storage.getBool(chave) ?? false;
   }
 //
-
 }
