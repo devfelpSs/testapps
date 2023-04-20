@@ -34,10 +34,12 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
 
   carregarDados() async {
     storage = await SharedPreferences.getInstance();
+    setState(() {
     nomeUsuarioController.text = storage.getString(CHAVE_NOME_USUARIO) ?? "";
     alturaController.text = (storage.getDouble(CHAVE_ALTURA) ?? 0).toString();
     receberNotificacoes = storage.getBool(CHAVE_RECEBER_NOTIFICACOES) ?? false;
     temaEscuro = storage.getBool(CHAVE_TEMA_ESCURO) ?? false;
+    });
   }
 
   @override
@@ -89,10 +91,28 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
             });
           }),
           TextButton(onPressed: () async {
+            try {
+            await storage.setDouble(CHAVE_ALTURA,
+              double.tryParse(alturaController.text) ?? 0);
+            } catch (e){
+              showDialog(
+                context: context, 
+                builder: (_){
+                  return AlertDialog(
+                    title: Text("Meu App"),
+                    content: Text("Favor informar uma altura valida!"),
+                    actions: [
+                      TextButton(
+                        onPressed: (){
+                          Navigator.pop(context);
+                        }, 
+                      child: Text("OK"))],
+                  );
+                });
+                return;
+            }
             await storage.setString(
               CHAVE_NOME_USUARIO, nomeUsuarioController.text);
-            await storage.setDouble(
-              CHAVE_ALTURA, double.tryParse(alturaController.text) ?? 0);
             await storage.setBool(
               CHAVE_RECEBER_NOTIFICACOES, receberNotificacoes);
             await storage.setBool(CHAVE_TEMA_ESCURO, temaEscuro);
