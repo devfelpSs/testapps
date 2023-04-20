@@ -91,22 +91,23 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
             });
           }),
           TextButton(onPressed: () async {
+            FocusManager.instance.primaryFocus?.unfocus();
             try {
             await storage.setDouble(CHAVE_ALTURA,
-              double.tryParse(alturaController.text) ?? 0);
+              double.parse(alturaController.text));
             } catch (e){
               showDialog(
                 context: context, 
                 builder: (_){
                   return AlertDialog(
-                    title: Text("Meu App"),
-                    content: Text("Favor informar uma altura valida!"),
+                    title: const Text("Meu App"),
+                    content: const Text("Favor informar uma altura valida!"),
                     actions: [
                       TextButton(
                         onPressed: (){
                           Navigator.pop(context);
                         }, 
-                      child: Text("OK"))],
+                      child: const Text("OK"))],
                   );
                 });
                 return;
@@ -117,7 +118,7 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
               CHAVE_RECEBER_NOTIFICACOES, receberNotificacoes);
             await storage.setBool(CHAVE_TEMA_ESCURO, temaEscuro);
             Navigator.pop(context);
-          }, child: Text("Salvar"))
+          }, child: const Text("Salvar"))
       ],),
     )));
   }
