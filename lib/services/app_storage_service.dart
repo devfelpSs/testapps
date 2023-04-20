@@ -103,7 +103,7 @@ class AppStorageService {
   }
 //
 
-
+//CHAVES PARA O ARQUIVO: "numeros_aleatorios_page.dart"
   Future<void> setNumeroAleatorio(int value) async {
     await _setInt(STORAGE_CHAVES.CHAVE_NUMERO_ALEATORIO.toString(), value);
   }
@@ -119,6 +119,7 @@ class AppStorageService {
   Future<int> getQuantidadeCliques() async {
     return _getInt(STORAGE_CHAVES.CHAVE_QUANTIDADE_CLIQUES.toString());
   }
+//
 
 //CRIANDO WRAP DE CHAVES PARA AS CHAVES ACIMA:
 
