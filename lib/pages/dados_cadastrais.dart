@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testapp/repositories/linguagens_repository.dart';
 import 'package:testapp/repositories/nivel_repository.dart';
+import 'package:testapp/services/app_storage_service.dart';
 import 'package:testapp/shared/widgets/text_label.dart';
 
 
@@ -26,7 +26,10 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var nivelSelecionado = "";
   double salarioEscolhido = 0;
   int tempoExperiencia = 0;
-  late SharedPreferences storage;
+// IMPORTANDO CLASSES DO ARQUIVO APP STORAGE:
+  AppStorageService storage = AppStorageService();
+//
+
   //chaves que irão salvar os dados dos campos:
   final String CHAVE_DADOS_CADASTRAIS_NOME = "CHAVE_DADOS_CADASTRAIS_NOME";
   final String CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO = "CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO";
@@ -49,14 +52,13 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
 
 //carrega os dados salvos anteriormente:
   carregarDados() async { 
-    storage = await SharedPreferences.getInstance();
-    nomeController.text = storage.getString(CHAVE_DADOS_CADASTRAIS_NOME) ?? "";
-    dataNascimentoController.text = storage.getString(CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO) ?? "";
+    nomeController.text = await storage.getDadosCadastraisNome();
+    dataNascimentoController.text = await storage.getDadosCadastraisDataNascimento();
     dataNascimento = DateTime.parse(dataNascimentoController.text);
-    nivelSelecionado = storage.getString(CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA) ?? "";
-    linguagensSelecionadas = storage.getStringList(CHAVE_DADOS_CADASTRAIS_LINGUAGENS) ?? [];
-    tempoExperiencia = storage.getInt(CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA) ?? 0;
-    salarioEscolhido = storage.getDouble(CHAVE_DADOS_CADASTRAIS_SALARIO) ?? 0;
+    nivelSelecionado = await storage.getDadosCadastraisNivelExperiencia();
+    linguagensSelecionadas = await storage.getDadosCadastraisLinguagens();
+    tempoExperiencia = await storage.getDadosCadastraisTempoExperiencia();
+    salarioEscolhido = await storage.getDadosCadastraisSalario();
     setState(() {
       
     });
@@ -198,18 +200,18 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                   return;
               }
 
-              //armazena os dados inseridos pelo usuario:
-              await storage.setString(CHAVE_DADOS_CADASTRAIS_NOME, nomeController.text);
-              await storage.setString(CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO, dataNascimento.toString());
-              await storage.setString(CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA, nivelSelecionado);
-              await storage.setStringList(CHAVE_DADOS_CADASTRAIS_LINGUAGENS, linguagensSelecionadas);
-              await storage.setInt(CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA, tempoExperiencia);
-              await storage.setDouble(CHAVE_DADOS_CADASTRAIS_SALARIO, salarioEscolhido);
-              //salva o estado atual:
+            //SETANDO CHAVES PARA ARMAZENAMENTO DE DADOS INSERIDOS PELO USUÁRIO:
+              await storage.setDadosCadastraisNome(nomeController.text);
+              await storage.setDadosCadastraisDataNascimento(dataNascimento!);
+              await storage.setDadosCadastraisNivelExperiencia(nivelSelecionado);
+              await storage.setDadosCadastraisLinguagens(linguagensSelecionadas);
+              await storage.setDadosCadastraisTempoExperiencia(tempoExperiencia);
+              await storage.setDadosCadastraisSalario(salarioEscolhido);
+            //SALVANDO ESTADO ATUAL COM AS CHAVES:
               setState(() {
                   salvando = true;
                 });
-              ////
+            ////
 
               Future.delayed(const Duration(seconds: 3), (){
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")));

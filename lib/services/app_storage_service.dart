@@ -13,48 +13,48 @@ enum STORAGE_CHAVES {
 
 class AppStorageService {
 
- void setDadosCadastraisNome(String nome) async {
-    _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_NOME.toString(), nome);
+ Future<void> setDadosCadastraisNome(String nome) async {
+    await _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_NOME.toString(), nome);
   }
 
   Future<String> getDadosCadastraisNome() async {
     return _getString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_NOME.toString());
   }
 
-   void setDadosCadastraisDataNascimento(DateTime data) async {
-      _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO.toString(), data.toString());
+  Future<void> setDadosCadastraisDataNascimento(DateTime data) async {
+     await _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO.toString(), data.toString());
   }
 
   Future<String> getDadosCadastraisDataNascimento() async {
      return _getString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO.toString());
   }
 
-    void setDadosCadastraisNivelExperiencia(DateTime data) async {
-      _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA.toString(), data.toString());
+  Future<void> setDadosCadastraisNivelExperiencia(String value) async {
+      await _setString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA.toString(), value);
   }
 
-  Future<String> getDadosCadastraisExperiencia() async {
+  Future<String> getDadosCadastraisNivelExperiencia() async {
      return _getString(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO.toString());
   }
 
-  void setDadosCadastraisLinguagens(List<String> values) async {
-    _setStringList(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_LINGUAGENS.toString(), values);
+  Future<void> setDadosCadastraisLinguagens(List<String> values) async {
+    await _setStringList(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_LINGUAGENS.toString(), values);
   }
 
   Future<List<String>> getDadosCadastraisLinguagens() async {
     return _getStringList(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_LINGUAGENS.toString());
   }
 
-  void setDadosCadastraisTempoExperiencia(int value) async {
-    _setInt(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA.toString(), value);
+  Future<void> setDadosCadastraisTempoExperiencia(int value) async {
+    await _setInt(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA.toString(), value);
   }
 
   Future<int> getDadosCadastraisTempoExperiencia() async {
     return _getInt(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA.toString());
   }
 
-    void setDadosCadastraisSalario(double value) async {
-    _setDouble(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_SALARIO.toString(), value);
+  Future<void> setDadosCadastraisSalario(double value) async {
+    await _setDouble(STORAGE_CHAVES.CHAVE_DADOS_CADASTRAIS_SALARIO.toString(), value);
   }
 
   Future<double> getDadosCadastraisSalario() async {
