@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:testapp/services/app_storage_service.dart';
 
 class NumerosAleatoriosPage extends StatefulWidget {
   const NumerosAleatoriosPage({super.key});
@@ -11,11 +12,9 @@ class NumerosAleatoriosPage extends StatefulWidget {
 }
 
 class _NumerosAleatoriosPageState extends State<NumerosAleatoriosPage> {
-  int? numeroGerado;
-  int? quantidadeCliques;
-  final CHAVE_NUMERO_ALEATORIO = "numero_aleatorio";
-  final CHAVE_QUANTIDADE_CLIQUES = "quantidade_cliques";
-  late SharedPreferences storage; //o late assim como o "!" tbm garante que essa variavel não será nulla
+  int numeroGerado = 0;
+  int quantidadeCliques = 0;
+  AppStorageService storage = AppStorageService();
  
   @override
   void initState() {
@@ -25,10 +24,9 @@ class _NumerosAleatoriosPageState extends State<NumerosAleatoriosPage> {
   }
 
   void carregarDados() async {
-    storage = await SharedPreferences.getInstance();
+    numeroGerado = await storage.getNumeroAleatorio();
+    quantidadeCliques = await storage.getQuantidadeCliques();
     setState(() {
-    numeroGerado = storage.getInt(CHAVE_NUMERO_ALEATORIO);
-    quantidadeCliques = storage.getInt(CHAVE_QUANTIDADE_CLIQUES);
     });
   }
 
@@ -59,10 +57,10 @@ class _NumerosAleatoriosPageState extends State<NumerosAleatoriosPage> {
             var random = Random();
             setState(() {
               numeroGerado = random.nextInt(1000);
-              quantidadeCliques = (quantidadeCliques ?? 0) + 1; //"??" Se a quantidade de cliques for nulla será igual a zero, se não utilize a quantidade de cliques + 1;
+              quantidadeCliques = quantidadeCliques + 1; //"??" Se a quantidade de cliques for nulla será igual a zero, se não utilize a quantidade de cliques + 1;
             });
-            storage.setInt(CHAVE_NUMERO_ALEATORIO, numeroGerado!); //"!" é utilizado para garantir que a variavel não é um nulo e assim elimina erros.
-            storage.setInt(CHAVE_QUANTIDADE_CLIQUES, quantidadeCliques!);
+            storage.setNumeroAleatorio(numeroGerado);
+            storage.setQuantidadeCliques(quantidadeCliques);
           },
           ),
       ),

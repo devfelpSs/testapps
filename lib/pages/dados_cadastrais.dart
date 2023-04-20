@@ -54,7 +54,9 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   carregarDados() async { 
     nomeController.text = await storage.getDadosCadastraisNome();
     dataNascimentoController.text = await storage.getDadosCadastraisDataNascimento();
-    dataNascimento = DateTime.parse(dataNascimentoController.text);
+    if (dataNascimentoController.text.isNotEmpty) {
+      dataNascimento = DateTime.parse(dataNascimentoController.text);
+    }
     nivelSelecionado = await storage.getDadosCadastraisNivelExperiencia();
     linguagensSelecionadas = await storage.getDadosCadastraisLinguagens();
     tempoExperiencia = await storage.getDadosCadastraisTempoExperiencia();
