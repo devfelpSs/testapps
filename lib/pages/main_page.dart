@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/card_page.dart';
-//import 'package:testapp/pages/page_teste.dart';
 import 'package:testapp/pages/image_assets.dart';
 import 'package:testapp/pages/list_view.dart';
 import 'package:testapp/pages/list_view_h.dart';
