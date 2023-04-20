@@ -27,13 +27,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   double salarioEscolhido = 0;
   int tempoExperiencia = 0;
   late SharedPreferences storage;
+  //chaves que irão salvar os dados dos campos:
   final String CHAVE_DADOS_CADASTRAIS_NOME = "CHAVE_DADOS_CADASTRAIS_NOME";
   final String CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO = "CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO";
   final String CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA = "CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA";
   final String CHAVE_DADOS_CADASTRAIS_LINGUAGENS = "CHAVE_DADOS_CADASTRAIS_LINGUAGENS";
   final String CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA = "CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA";
   final String CHAVE_DADOS_CADASTRAIS_SALARIO = "CHAVE_DADOS_CADASTRAIS_SALARIO";
-  
+  //
   bool salvando = false;
 
 
@@ -46,7 +47,8 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
     carregarDados();
   }
 
-  carregarDados() async {
+//carrega os dados salvos anteriormente:
+  carregarDados() async { 
     storage = await SharedPreferences.getInstance();
     nomeController.text = storage.getString(CHAVE_DADOS_CADASTRAIS_NOME) ?? "";
     dataNascimentoController.text = storage.getString(CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO) ?? "";
@@ -196,16 +198,18 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                   return;
               }
 
+              //armazena os dados inseridos pelo usuario:
               await storage.setString(CHAVE_DADOS_CADASTRAIS_NOME, nomeController.text);
               await storage.setString(CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO, dataNascimento.toString());
               await storage.setString(CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA, nivelSelecionado);
               await storage.setStringList(CHAVE_DADOS_CADASTRAIS_LINGUAGENS, linguagensSelecionadas);
               await storage.setInt(CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA, tempoExperiencia);
               await storage.setDouble(CHAVE_DADOS_CADASTRAIS_SALARIO, salarioEscolhido);
-
+              //salva o estado atual:
               setState(() {
                   salvando = true;
                 });
+              ////
 
               Future.delayed(const Duration(seconds: 3), (){
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")));
