@@ -1,0 +1,4 @@
+class ConfiguracoesRepository {
+
+const ConfiguracoesRepository();
+}
