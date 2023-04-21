@@ -121,7 +121,7 @@ class AppStorageService {
   }
 //
 
-//CRIANDO WRAP DE CHAVES PARA AS CHAVES ACIMA:
+//CRIANDO WRAP DE CHAVES PARA AS CHAVES ACIMA FAZEREM USO:
 
 //TIPO STRING:
    _setString(String chave, String value) async {
