@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/configuracoes_page.dart';
 import 'package:testapp/pages/login_page.dart';
-import 'package:testapp/pages/numeros_aleatorios_page.dart';
+import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_page.dart';
 
 import '../../pages/dados_cadastrais.dart';
 
