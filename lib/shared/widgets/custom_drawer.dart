@@ -1,9 +1,10 @@
 //Utilizar esse arquivo para construir o app...
 import 'package:flutter/material.dart';
-import 'package:testapp/pages/configuracoes_page.dart';
+import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 
+import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais.dart';
 import '../../pages/numeros_aleatorios/numeros_aleatorios_hive.dart';
 
@@ -139,7 +140,7 @@ class CustomDrawer extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (bc) =>
-                        const ConfiguracoesPage()), 
+                        const ConfiguracoesHivePage()), 
                     );
                   },
                 ),
