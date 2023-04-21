@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testapp/services/app_storage_service.dart';
 
-class NumerosAleatoriosPage extends StatefulWidget {
-  const NumerosAleatoriosPage({super.key});
+class NumerosAleatoriosSharedPreferencePage extends StatefulWidget {
+  const NumerosAleatoriosSharedPreferencePage({super.key});
 
   @override
-  State<NumerosAleatoriosPage> createState() => _NumerosAleatoriosPageState();
+  State<NumerosAleatoriosSharedPreferencePage> createState() => _NumerosAleatoriosSharedPreferencePageState();
 }
 
-class _NumerosAleatoriosPageState extends State<NumerosAleatoriosPage> {
+class _NumerosAleatoriosSharedPreferencePageState extends State<NumerosAleatoriosSharedPreferencePage> {
   int numeroGerado = 0;
   int quantidadeCliques = 0;
   AppStorageService storage = AppStorageService();
