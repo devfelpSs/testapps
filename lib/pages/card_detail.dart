@@ -53,4 +53,3 @@ class CardDetailPage extends StatelessWidget {
     );
   }
 }
-//teste githubss
