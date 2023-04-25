@@ -22,7 +22,7 @@ class DadosCadastraisModel extends HiveObject {
   @HiveField(5)
   double? salario;
 
-DadosCadastraisModel();
+  DadosCadastraisModel();
 
   DadosCadastraisModel.vazio(){
     nome = "";

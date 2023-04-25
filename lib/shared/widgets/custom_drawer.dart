@@ -5,7 +5,7 @@ import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
-import '../../pages/dados_cadastrais.dart';
+import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
 import '../../pages/numeros_aleatorios/numeros_aleatorios_hive.dart';
 
 class CustomDrawer extends StatelessWidget {
