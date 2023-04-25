@@ -30,14 +30,14 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   AppStorageService storage = AppStorageService();
 //
 
-  //chaves que irão salvar os dados dos campos:
+//chaves que irão salvar os dados dos campos:
   final String CHAVE_DADOS_CADASTRAIS_NOME = "CHAVE_DADOS_CADASTRAIS_NOME";
   final String CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO = "CHAVE_DADOS_CADASTRAIS_DATA_NASCIMENTO";
   final String CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA = "CHAVE_DADOS_CADASTRAIS_NIVEL_EXPERIENCIA";
   final String CHAVE_DADOS_CADASTRAIS_LINGUAGENS = "CHAVE_DADOS_CADASTRAIS_LINGUAGENS";
   final String CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA = "CHAVE_DADOS_CADASTRAIS_TEMPO_EXPERIENCIA";
   final String CHAVE_DADOS_CADASTRAIS_SALARIO = "CHAVE_DADOS_CADASTRAIS_SALARIO";
-  //
+//
   bool salvando = false;
 
 
@@ -65,6 +65,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
       
     });
   }
+//
 
   List<DropdownMenuItem<int>> returnItens(int quantidadeMaxima){
     var itens = <DropdownMenuItem<int>>[];
