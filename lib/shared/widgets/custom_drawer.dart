@@ -1,5 +1,6 @@
 //Utilizar esse arquivo para construir o app...
 import 'package:flutter/material.dart';
+import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
@@ -61,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
                   )),
                 onTap: (){
                     Navigator.pop(context);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisHivePage()));
                   },
                 ),
                 const Divider(),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/repositories/linguagens_repository.dart';
@@ -21,15 +20,10 @@ class _DadosCadastraisHivePageState extends State<DadosCadastraisHivePage> {
 
   var nomeController = TextEditingController(text: "");
   var dataNascimentoController = TextEditingController(text: "");
-  //DateTime? dataNascimento;
   var nivelRepository = NivelRepository();
   var linguagensRepoistory = LinguagensRepository();
   var niveis = [];
   var linguagens = [];
-  //List<String> linguagensSelecionadas = [];
-  //var nivelSelecionado = "";
-  //int tempoExperiencia = 0;
-  //double salarioEscolhido = 0;
 
   bool salvando = false;
 
@@ -191,11 +185,13 @@ class _DadosCadastraisHivePageState extends State<DadosCadastraisHivePage> {
                   const SnackBar(content: Text("A pretenção salarial deve ser maior que 0")));
                   return;
               }
+              dadosCadastraisModel.nome = nomeController.text;
+              dadosCadastraisRepository.salvar(dadosCadastraisModel);
             //SALVANDO ESTADO ATUAL COM AS CHAVES:
               setState(() {
                   salvando = true;
                 });
-            ////
+            //
 
               Future.delayed(const Duration(seconds: 3), (){
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Dados salvo com sucesso")));
