@@ -1,3 +1,5 @@
+//CONFIG DE ARMAZENAMENTO UTILIZANDO O "shared_preferences"
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 //STORAGE DE CHAVES PARA OS 3 ARQUIVOS DO APP:
