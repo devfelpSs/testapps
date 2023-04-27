@@ -11,7 +11,7 @@ void main() async {
   var documentsDirectory = await path_provider.getApplicationDocumentsDirectory();
   Hive.init(documentsDirectory.path);
   Hive.registerAdapter(DadosCadastraisModelAdapter());
-  Hive.registerAdapter(TarefaHiveModelAdapter());
+  Hive.registerAdapter(TarefaHiveModeloAdapter());
   runApp(const MyApp());
 }
 

@@ -61,6 +61,7 @@ class _TarefaPageState extends State<TarefaPage> {
                     await tarefaRepository.salvar(
                       TarefaHiveModelo.criar(descricaoController.text, false));
                     Navigator.pop(context);
+                    obterTarefas();
                     setState(() {});
                     }, child: const Text("Salvar")), //Botão de salvar e sem nenhuma operação ao ser pressionado
                 ],
@@ -95,13 +96,14 @@ class _TarefaPageState extends State<TarefaPage> {
                      //await tarefaRepository.remove(tarefa.id);
                      obterTarefas();
                     },
-                    key: Key(tarefa.key),
+                    key: Key(tarefa.descricao),
                     child: ListTile(
                       title: Text(tarefa.descricao),
                       trailing: Switch(onChanged: (bool value) async {
                         //await tarefaRepository.alterar(tarefa.id, value);
                         obterTarefas();
-                      }, value: tarefa.concluido),
+                      }, 
+                      value: tarefa.concluido),
                       ),
                   );
                 },

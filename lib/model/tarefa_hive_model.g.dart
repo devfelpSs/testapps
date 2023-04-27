@@ -6,23 +6,23 @@ part of 'tarefa_hive_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TarefaHiveModelAdapter extends TypeAdapter<TarefaHiveModel> {
+class TarefaHiveModeloAdapter extends TypeAdapter<TarefaHiveModelo> {
   @override
   final int typeId = 1;
 
   @override
-  TarefaHiveModel read(BinaryReader reader) {
+  TarefaHiveModelo read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return TarefaHiveModel()
+    return TarefaHiveModelo()
       ..descricao = fields[0] as String
       ..concluido = fields[1] as bool;
   }
 
   @override
-  void write(BinaryWriter writer, TarefaHiveModel obj) {
+  void write(BinaryWriter writer, TarefaHiveModelo obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -37,7 +37,7 @@ class TarefaHiveModelAdapter extends TypeAdapter<TarefaHiveModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TarefaHiveModelAdapter &&
+      other is TarefaHiveModeloAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
