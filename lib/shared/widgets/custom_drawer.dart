@@ -117,7 +117,7 @@ class CustomDrawer extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (bc) =>
-                        const NumerosAleatoriosHivePage()), 
+                        const NumerosAleatoriosSharedPreferencePage()), 
                     );
                   },
                 ),
