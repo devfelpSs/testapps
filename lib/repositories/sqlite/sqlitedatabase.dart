@@ -21,33 +21,8 @@ class SQLiteDataBase {
         return db!;
       }
     }
-  Future<Database> iniciarBancoDeDados() async {
-    try {
-      var db = await openDatabase(
-        path.join(await getDatabasesPath(), 'database.db'),
-        version: scripts.length, 
-        onCreate: (Database db, int version) async {
-          for (var i = 1; i <= scripts.length; i++) {
-            await db.execute(scripts[i]!);
-            debugPrint(scripts[i]!);
-          }
-        }, 
-        onUpgrade: (Database db, int oldVersion, int newVersion) async {
-          for (var i = oldVersion + 1; i <= scripts.length; i++){
-            await db.execute(scripts[i]!);
-            debugPrint(scripts[i]!);
-          }
-        }
-      );
-      print(path.join(await getDatabasesPath(), 'database.db'));
-      return db;
-    } catch (e) {
-      print('Erro ao abrir o banco de dados: $e');
-      rethrow;
-    }
-  }
-
-    /*Future<Database> iniciarBancoDeDados() async {
+    
+    Future<Database> iniciarBancoDeDados() async {
     var db = openDatabase(
       path.join(await getDatabasesPath(), 'database.db'),
       version: scripts.length, 
@@ -65,5 +40,5 @@ class SQLiteDataBase {
       });
     print(path.join(await getDatabasesPath(), 'database.db'));
     return db;
-  }*/
+  }
 }
