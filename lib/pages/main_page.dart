@@ -5,6 +5,7 @@ import 'package:testapp/pages/list_view.dart';
 import 'package:testapp/pages/list_view_h.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_hive_page.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_sqlite_page.dart';
+import 'package:testapp/pages/teste_http.dart';
 import '../shared/widgets/custom_drawer.dart';
 
 
@@ -40,7 +41,7 @@ class _MainPageState extends State<MainPage> {
                   });
                 },
                 children: const [
-                CardPage(),
+                HttpTestePage(),
                 ImageAssetsPage(),
                 ListViewPage(),
                 ListViewHorizontal(),
@@ -55,6 +56,7 @@ class _MainPageState extends State<MainPage> {
                 controller.jumpToPage(value);
               },
               currentIndex: posicaoPagina, items: const [
+              BottomNavigationBarItem(label: "HTTP", icon: Icon(Icons.get_app_rounded)),
               BottomNavigationBarItem(label: "Page1", icon: Icon(Icons.home)),
               BottomNavigationBarItem(label: "Page2", icon: Icon(Icons.find_in_page)),
               //BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.add)),
