@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:core';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:http/http.dart' as http;
 import 'package:testapp/model/viacep_model.dart';
+import 'package:testapp/repositories/via_cep_repository.dart';
 
 class ConsultaCEP extends StatefulWidget {
   const ConsultaCEP({Key? key}) : super(key: key);
@@ -19,6 +19,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
   var cepController = TextEditingController(text: "");
   bool loading = false;
   var viacepModel = ViaCEPModel();
+  var ViaCEPRepository = ViaCepRepository();
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -37,12 +38,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
                   setState(() {
                     loading = true;
                   });
-                  var response = await http.get(Uri.parse("https://viacep.com.br/ws/$cep/json/"));
-                  print(response.statusCode);
-                  print(response.body);
-                  var json = jsonDecode(response.body);
-                  viacepModel = ViaCEPModel.fromJson(json);
-                  print(viacepModel);
+                  viacepModel = await ViaCEPRepository.consultarCEP(cep);
                 }
                 setState(() {
                   loading = false;
@@ -66,11 +62,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
-          onPressed: () async {
-            var response = await http.get(Uri.parse("https://www.google.com"));
-            print(response.statusCode);
-            print(response.body);
-      }),      
+          onPressed: () async {}),      
     ));
   }
 }
