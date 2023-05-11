@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
                 },
                 children: const [
                 ConsultaCEP(),
-                ImageAssetsPage(),
+                CardPage(),
                 ListViewPage(),
                 ListViewHorizontal(),
                 TarefaSQLitePage(),
