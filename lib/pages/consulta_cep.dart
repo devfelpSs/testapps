@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:http/http.dart' as http;
+import 'package:testapp/model/viacep_model.dart';
 
 class ConsultaCEP extends StatefulWidget {
   const ConsultaCEP({Key? key}) : super(key: key);
@@ -16,10 +17,8 @@ class ConsultaCEP extends StatefulWidget {
 
 class _ConsultaCEPState extends State<ConsultaCEP> {
   var cepController = TextEditingController(text: "");
-  String endereco = "";
-  String cidade = "";
-  String estado = "";
   bool loading = false;
+  var viacepModel = ViaCEPModel();
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -42,13 +41,8 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
                   print(response.statusCode);
                   print(response.body);
                   var json = jsonDecode(response.body);
-                  cidade = json["localidade"];
-                  estado = json["uf"];
-                  endereco = json["logradouro"];
-                }else {
-                  cidade = "";
-                  estado = "";
-                  endereco = "";
+                  viacepModel = ViaCEPModel.fromJson(json);
+                  print(viacepModel);
                 }
                 setState(() {
                   loading = false;
@@ -59,11 +53,11 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
                 height: 50,
               ),
               Text (
-                endereco, 
+                viacepModel.logradouro ?? "", 
                 style: const TextStyle(fontSize: 22),
               ),
               Text(
-                "$cidade - $estado", 
+                "${viacepModel.localidade ?? ""} - ${viacepModel.uf ?? ""}", 
                 style: const TextStyle(fontSize: 22),
               ),
               Visibility(visible: loading,child: const CircularProgressIndicator())
