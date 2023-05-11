@@ -35,7 +35,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
                 if (cep.length == 8) {
                   cidade = "Cidade";
                   estado = "Estado";
-                  endereco = "Endereço";
+                  endereco = "Endereco";
 
                 }else {
                   cidade = "";
