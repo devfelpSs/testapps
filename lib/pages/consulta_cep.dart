@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:core';
 import 'dart:math';
 
@@ -18,6 +19,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
   String endereco = "";
   String cidade = "";
   String estado = "";
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -30,32 +32,41 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
               TextField(controller: cepController,
               keyboardType: TextInputType.number,
               //maxLength: 8,
-              onChanged: (String value) {
+              onChanged: (String value) async {
                 var cep = value.trim().replaceAll(new RegExp(r'[^0-9]'),'');
                 if (cep.length == 8) {
-                  cidade = "Cidade";
-                  estado = "Estado";
-                  endereco = "Endereco";
-
+                  setState(() {
+                    loading = true;
+                  });
+                  var response = await http.get(Uri.parse("https://viacep.com.br/ws/$cep/json/"));
+                  print(response.statusCode);
+                  print(response.body);
+                  var json = jsonDecode(response.body);
+                  cidade = json["localidade"];
+                  estado = json["uf"];
+                  endereco = json["logradouro"];
                 }else {
                   cidade = "";
                   estado = "";
                   endereco = "";
                 }
-                setState(() {});
+                setState(() {
+                  loading = false;
+                });
               },
               ),
               const SizedBox(
                 height: 50,
               ),
-              Text(
+              Text (
                 endereco, 
-                style: TextStyle(fontSize: 22)
+                style: const TextStyle(fontSize: 22),
               ),
               Text(
                 "$cidade - $estado", 
-                style: TextStyle(fontSize: 22)
+                style: const TextStyle(fontSize: 22),
               ),
+              Visibility(visible: loading,child: const CircularProgressIndicator())
             ],
           ),
         ),
