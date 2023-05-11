@@ -10,7 +10,7 @@ class PostsRepository {
     
     if (response.statusCode == 200) {
       var jsonPosts = jsonDecode(response.body);
-      return (json as List).map((e) => PostModel.fromJson(e)).toList();
+      return (jsonPosts as List).map((e) => PostModel.fromJson(e)).toList();
     } else {
       return [];
     }

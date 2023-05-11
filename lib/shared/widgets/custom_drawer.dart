@@ -4,6 +4,7 @@ import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
+import 'package:testapp/pages/posts_page.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
@@ -142,6 +143,31 @@ class CustomDrawer extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (bc) =>
                         const ConfiguracoesHivePage()), 
+                    );
+                  },
+                ),
+                const Divider(),
+                const SizedBox(
+                  height: 10,
+                ),
+                InkWell(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  width: double.infinity,
+                  child: Row(
+                    children: const [
+                      Icon(Icons.post_add),
+                      SizedBox(width: 5,),
+                      Text("Posts"),
+                    ],
+                  )),
+                  onTap: (){
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (bc) =>
+                        const PostsPage()), 
                     );
                   },
                 ),
