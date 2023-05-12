@@ -38,13 +38,32 @@ class _CommentsPageState extends State<CommentsPage> {
         title: Text("Comentários do Post: ${widget.postId}"),
         ),
         body: Container(
-          child: ListView.builder(
+          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: comments.length == 0 
+          ? Center(child: CircularProgressIndicator()) 
+          : ListView.builder(
             itemCount: comments.length,
             itemBuilder: (_, int index){
             var comment = comments[index];
-            return Container(
-              child: Text(comment.body),
-            );
+            return Card(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(comment.name.substring(0, 6)),
+                      Text(comment.email),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,),
+                  Text(comment.body),
+                ],
+                          ),
+              ));
           }
         )),
       )
