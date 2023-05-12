@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/pages/comments_page.dart';
 
 import '../model/post_model.dart';
 import '../repositories/posts_repository.dart';
@@ -37,27 +38,33 @@ class _PostsPageState extends State<PostsPage> {
           itemCount: posts.length,
           itemBuilder: (_, index) {
             var post = posts[index];
-            return Container(
-              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-              child: Card(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        post.title, 
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                      ),
-
-                      SizedBox(
-                        height: 10,
-                      ),
-
-                      Text(
-                        post.body, 
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
-                    ],
+            return InkWell(
+              onTap: (){
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (_) => CommentsPage(postId: post.id)));
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                child: Card(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          post.title, 
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+            
+                        SizedBox(
+                          height: 10,
+                        ),
+            
+                        Text(
+                          post.body, 
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
+                      ],
+                    ),
                   ),
                 ),
               ),
