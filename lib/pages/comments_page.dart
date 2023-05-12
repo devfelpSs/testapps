@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/repositories/comments_repository.dart';
+import 'package:testapp/repositories/http/comments_http_repository.dart';
 
 import '../model/comment_model.dart';
 
@@ -12,7 +12,7 @@ class CommentsPage extends StatefulWidget {
 }
 
 class _CommentsPageState extends State<CommentsPage> {
-  var commentsRepository = CommentsRepository();
+  var commentsRepository = CommentsHttpRepository();
   var comments = <CommentModel>[];
 
 
