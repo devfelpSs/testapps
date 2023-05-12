@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/comments_page.dart';
+import 'package:testapp/repositories/posts/impl/posts_dio_repository.dart';
+import 'package:testapp/repositories/posts/impl/posts_repository.dart';
 
 import '../model/post_model.dart';
 import 'package:testapp/repositories/http/posts_http_repository.dart';
@@ -12,13 +14,13 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> {
-  var postsRepository = PostsHttpRepository();
+  late PostsRepository postsRepository;
   var posts = <PostModel>[];
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    postsRepository = PostsDioRepository();
     carregarDados();
   }
 
