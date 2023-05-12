@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/repositories/http/comments_http_repository.dart';
-
 import '../model/comment_model.dart';
+import '../repositories/posts/http/comments_http_repository.dart';
 
 class CommentsPage extends StatefulWidget {
   final int postId;
