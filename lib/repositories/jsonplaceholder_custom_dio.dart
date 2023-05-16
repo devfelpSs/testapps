@@ -5,6 +5,6 @@ class JsonPlaceHolderCustomDio {
 
   Dio get dio => _dio;
   JsonPlaceHolderCustomDio() {
-    _dio.options.baseUrl = "https://jsonplaceholder.typicode.com";
+    _dio.options.baseUrl = "JSONPLACEHOLDER";
   }
 }

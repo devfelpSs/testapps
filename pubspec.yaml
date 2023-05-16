@@ -41,6 +41,9 @@ dependencies:
   sqflite: ^2.2.7
   http: ^0.13.6
   dio: ^5.1.2
+  crypto: ^3.0.3
+  flutter_dotenv: ^5.0.2
+  query: ^2.1.0
 
 dev_dependencies:
   flutter_test:
