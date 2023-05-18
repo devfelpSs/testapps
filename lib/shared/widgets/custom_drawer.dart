@@ -9,6 +9,7 @@ import 'package:testapp/pages/posts_page.dart';
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
 import '../../pages/numeros_aleatorios/numeros_aleatorios_hive.dart';
+import '../../repositories/marvel/marvel_repository.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -186,14 +187,17 @@ class CustomDrawer extends StatelessWidget {
                       Text("Herois"),
                     ],
                   )),
-                  onTap: (){
+                  onTap: () async {
+                    var marvelRepository = MarvelRepository();
+                    var heroes = await marvelRepository.getCharacters();
+                    print(heroes);
                     Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (bc) =>
-                        const PostsPage()), 
-                    );
+                    //Navigator.push(
+                     // context,
+                     // MaterialPageRoute(
+                       // builder: (bc) =>
+                        //const PostsPage()), 
+                    //);
                   },
                 ),
                 const Divider(),
