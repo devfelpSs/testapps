@@ -1,5 +1,4 @@
 import 'dart:convert';
-//import 'dart:html';
 import 'package:dio/dio.dart';
 import '../../model/characters_model.dart';
 import 'package:crypto/crypto.dart' as crypto;
@@ -9,6 +8,7 @@ import 'package:query/query.dart';
 
 class MarvelRepository {
   Future<CharactersModel> getCharacters() async {
+    await dotenv.load();
     var dio = Dio();
     var ts = DateTime.now().microsecondsSinceEpoch.toString();
     var publickey = dotenv.get("MARVELPUBLICKEY");

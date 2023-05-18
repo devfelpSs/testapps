@@ -45,6 +45,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   query: ^2.1.0
   html: ^0.15.3
+  convert: ^3.0.0
 
 dev_dependencies:
   flutter_test:
