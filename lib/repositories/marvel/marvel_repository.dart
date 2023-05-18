@@ -1,10 +1,13 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../model/characters_model.dart';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:convert/convert.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:query/query.dart';
+
+
+
 
 class MarvelRepository {
   Future<CharactersModel> getCharacters() async {
