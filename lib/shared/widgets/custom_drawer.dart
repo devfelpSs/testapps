@@ -192,12 +192,12 @@ class CustomDrawer extends StatelessWidget {
                     var heroes = await marvelRepository.getCharacters();
                     print(heroes);
                     Navigator.pop(context);
-                    //Navigator.push(
-                     // context,
-                     // MaterialPageRoute(
-                       // builder: (bc) =>
-                        //const PostsPage()), 
-                    //);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (bc) =>
+                     const PostsPage()), 
+                    );
                   },
                 ),
                 const Divider(),
