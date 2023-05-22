@@ -5,6 +5,7 @@ import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_pag
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
+import 'package:testapp/repositories/back4app/tarefas_back4app_repository.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
@@ -18,8 +19,8 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
                 onTap: (){
@@ -176,7 +177,7 @@ class CustomDrawer extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                                InkWell(
+                InkWell(
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   width: double.infinity,
@@ -190,7 +191,6 @@ class CustomDrawer extends StatelessWidget {
                   onTap: () async {
                     var marvelRepository = MarvelRepository();
                     var heroes = await marvelRepository.getCharacters();
-                    print(heroes);
                     Navigator.pop(context);
                     Navigator.push(
                       context,
@@ -198,6 +198,30 @@ class CustomDrawer extends StatelessWidget {
                       builder: (bc) =>
                      const PostsPage()), 
                     );
+                  },
+                ),
+                const Divider(),
+                const SizedBox(
+                  height: 10,
+                ),
+                                InkWell(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  width: double.infinity,
+                  child: Row(
+                    children: const [
+                      Icon(Icons.post_add),
+                      SizedBox(width: 5,),
+                      Text("Tarefas HTTP"),
+                    ],
+                  )),
+                  onTap: () async {
+                    var tarefa = TarefasBack4AppRepository();
+                    var tarefas = await tarefa.obterTarefas();
+                    print(tarefas);
+                    Navigator.pop(context);
+                    //Navigator.push(context,
+                      //MaterialPageRoute(builder: (bc) => const PostsPage()));
                   },
                 ),
                 const Divider(),
