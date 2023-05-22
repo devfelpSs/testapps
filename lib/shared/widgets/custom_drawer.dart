@@ -5,6 +5,7 @@ import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_pag
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
+import 'package:testapp/pages/tarefa_page/tarefa_http_page.dart';
 import 'package:testapp/repositories/back4app/tarefas_back4app_repository.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
@@ -216,12 +217,9 @@ class CustomDrawer extends StatelessWidget {
                     ],
                   )),
                   onTap: () async {
-                    var tarefa = TarefasBack4AppRepository();
-                    var tarefas = await tarefa.obterTarefas();
-                    print(tarefas);
                     Navigator.pop(context);
-                    //Navigator.push(context,
-                      //MaterialPageRoute(builder: (bc) => const PostsPage()));
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
                   },
                 ),
                 const Divider(),
