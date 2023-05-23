@@ -96,7 +96,7 @@ class _TarefaHttpPageState extends State<TarefaHttpPage> {
                   var tarefa = _tarefasBack4App.tarefas[index];
                   return Dismissible(
                     onDismissed: (DismissDirection dismissDirection) async {
-                     //tarefaRepository.remover(tarefa.id);
+                     await tarefaRepository.remover(tarefa.objectId);
                      obterTarefas();
                     },
                     key: Key(tarefa.descricao),
@@ -104,7 +104,7 @@ class _TarefaHttpPageState extends State<TarefaHttpPage> {
                       title: Text(tarefa.descricao),
                       trailing: Switch(onChanged: (bool value) async {
                         tarefa.concluido = value;
-                        //tarefaRepository.atualizar(tarefa);
+                        await tarefaRepository.atualizar(tarefa);
                         obterTarefas();
                       }, 
                       value: tarefa.concluido

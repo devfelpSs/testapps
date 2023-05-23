@@ -40,4 +40,12 @@ class TarefasBack4AppRepository {
     }
   }
 
+  Future<void> remover(String objectId) async {
+    try {
+      await _dio.delete("/Tarefas/$objectId");
+    } catch (e) {
+      throw e;
+    }
+  }
+
 }
