@@ -59,8 +59,10 @@ class _TarefaHttpPageState extends State<TarefaHttpPage> {
                   
                   TextButton(
                     onPressed: ()async {
-                    //await tarefaRepository.salvar(
-                     // TarefaSQLiteModel(0, descricaoController.text, false));
+                    await tarefaRepository.criar(
+                      TarefaBack4AppModel.criar(
+                        descricaoController.text, false
+                      ));
                     Navigator.pop(context);
                     obterTarefas();
                     setState(() {});
