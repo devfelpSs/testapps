@@ -58,9 +58,7 @@ class _ListViewPageState extends State<ListViewPage> {
                 const PopupMenuItem(value: "opcao3", child: Text("Opção 3")),
               ];
             }),
-        ),
-
-        
+        ),        
         Image.asset(AppImages.profile1),
         Image.asset(AppImages.profile2),
         Image.asset(AppImages.profile3),

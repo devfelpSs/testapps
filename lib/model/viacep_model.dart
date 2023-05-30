@@ -1,3 +1,6 @@
+//EU UTILIZEI UM SITE CHAMADO: "JSON TO DART" para converter o código abaixo que era em json to dart
+
+
 class ViaCEPModel {
   String? cep;
   String? logradouro;
