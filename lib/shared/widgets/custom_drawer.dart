@@ -1,5 +1,6 @@
 //Utilizar esse arquivo para construir o app...
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
@@ -59,11 +60,15 @@ class CustomDrawer extends StatelessWidget {
                   width: double.infinity,
                   child: Row(
                     children: const [
-                      Icon(Icons.account_circle),
+                      FaIcon(FontAwesomeIcons.solidFloppyDisk, 
+                      color: Colors.green,
+                      size: 20,
+                      ),
+                  
                       SizedBox(width: 5,),
-                      Text("Dados Cadastrais"),
+                      Text("Opção 1"),
                     ],
-                  )),
+                  )), 
                 onTap: (){
                     Navigator.pop(context);
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const DadosCadastraisHivePage()));
