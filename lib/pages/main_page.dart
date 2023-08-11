@@ -7,6 +7,7 @@ import 'package:testapp/pages/tarefa_page/tarefa_hive_page.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_sqlite_page.dart';
 import 'package:testapp/pages/consulta_cep.dart';
 import '../shared/widgets/custom_drawer.dart';
+import 'package:testapp/pages/pagina_teste.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -46,7 +47,7 @@ class _MainPageState extends State<MainPage> {
                 ListViewPage(),
                 ListViewHorizontal(),
                 TarefaSQLitePage(),
-                //MyTeste(),
+                CircularPercentIndicatorPage(),
                 ],
               ),
             ),
@@ -62,14 +63,11 @@ class _MainPageState extends State<MainPage> {
               //BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.add)),
               BottomNavigationBarItem(label: "Page3", icon: Icon(Icons.widgets)),
               BottomNavigationBarItem(label: "Page4", icon: Icon(Icons.image)),
-              BottomNavigationBarItem(label: "Tarefas", icon: Icon(Icons.list)),
+              BottomNavigationBarItem(label: "Teste", icon: Icon(Icons.list)),
             ])
           ],
         ),
       ),
     );
   }
-}
-
-class Pagina3Page {
 }
