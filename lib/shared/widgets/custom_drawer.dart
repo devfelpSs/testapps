@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:testapp/model/dados_cadastrais_model.dart';
+import 'package:testapp/pages/autosizetext/auto_size_text.dart';
 import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
@@ -189,28 +190,22 @@ class CustomDrawer extends StatelessWidget {
                   width: double.infinity,
                   child: Row(
                     children: const [
-                      Icon(Icons.token),
-                      SizedBox(width: 5,),
-                      Text("Herois"),
+                      FaIcon(FontAwesomeIcons.paperclip,
+                      color: Colors.blue,
+                      size: 24,),
+                      Text("Auto Size Text"),
                     ],
                   )),
-                  onTap: () async {
-                    var marvelRepository = MarvelRepository();
-                    var heroes = await marvelRepository.getCharacters();
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                      builder: (bc) =>
-                     const PostsPage()), 
-                    );
+                  onTap: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => AutoSizeTextPage()));
                   },
                 ),
                 const Divider(),
                 const SizedBox(
                   height: 10,
                 ),
-                                InkWell(
+                InkWell(
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   width: double.infinity,
