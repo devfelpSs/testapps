@@ -11,9 +11,9 @@ class SplashScreenDelayPage extends StatefulWidget {
 
 class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
   openHome() {
-    Future.delayed(Duration(seconds: 2),(){
+    Future.delayed(const Duration(seconds: 2),(){
       Navigator.pushReplacement(context, 
-      MaterialPageRoute(builder: (builder) => MainPage()));
+      MaterialPageRoute(builder: (builder) => const MainPage()));
     });
   }
 
@@ -23,7 +23,7 @@ class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
     return SafeArea(
         child: Scaffold(
             body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
             gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
