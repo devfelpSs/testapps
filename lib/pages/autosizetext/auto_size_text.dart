@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class AutoSizeTextPage extends StatefulWidget {
   const AutoSizeTextPage({super.key});
@@ -8,6 +9,7 @@ class AutoSizeTextPage extends StatefulWidget {
 }
 
 class  _AutoSizeTextPageState extends State<AutoSizeTextPage> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,11 +19,29 @@ class  _AutoSizeTextPageState extends State<AutoSizeTextPage> {
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Card(
-              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4 ),
-                child: Text("Caros amigos, a execução dos pontos do programa nos obriga à análise dos índices pretendidos. As experiências acumuladas demonstram que o desafiador cenário globalizado cumpre um papel essencial na formulação das posturas dos órgãos dirigentes com relação às suas atribuições. Assim mesmo, o desenvolvimento contínuo de distintas formas de atuação exige a precisão e a definição do sistema de participação geral. A nível organizacional, a estrutura atual da organização estimula a padronização das direções preferenciais no sentido do progresso. "))),),
-      ));
+            child: Column(
+              children: [
+                TextField(
+                  controller: controller,
+                  maxLines: 5,
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                ),
+                Card(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4 ),
+                    child: AutoSizeText(
+                      controller.text, 
+                      maxLines: 3,
+                      minFontSize: 10,
+                    )
+                  )
+                ),
+              ],
+            ),
+        ),
+      )
+    );
   }
 }
