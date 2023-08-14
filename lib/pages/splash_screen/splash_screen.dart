@@ -15,7 +15,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     return SafeArea(
         child: Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -35,7 +35,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               totalRepeatCount: 1,
               onFinished: (){
                 Navigator.pushReplacement(context, 
-                MaterialPageRoute(builder: (builder) => MainPage()));
+                MaterialPageRoute(builder: (builder) => const MainPage()));
               },
               animatedTexts: [
                 FadeAnimatedText('splash SCREEN'),
