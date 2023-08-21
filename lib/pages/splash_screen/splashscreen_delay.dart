@@ -11,9 +11,9 @@ class SplashScreenDelayPage extends StatefulWidget {
 
 class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
   openHome() {
-    Future.delayed(const Duration(seconds: 2),(){
-      Navigator.pushReplacement(context, 
-      MaterialPageRoute(builder: (builder) => const MainPage()));
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (builder) => const MainPage()));
     });
   }
 
@@ -21,32 +21,9 @@ class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
   Widget build(BuildContext context) {
     openHome();
     return SafeArea(
-        child: Scaffold(
-            body: Container(
-            decoration: const BoxDecoration(
-            gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.yellow, Colors.purple],
-          //stops: [0.7, 0.3,]
-        ),
-      ),
-      child: AnimatedTextKit(
-        animatedTexts: [
-          TypewriterAnimatedText(
-            'Hello world!',
-            textStyle: const TextStyle(
-              fontSize: 32.0,
-              fontWeight: FontWeight.bold,
-            ),
-            speed: const Duration(milliseconds: 500),
-          ),
-        ],
-        totalRepeatCount: 4,
-        pause: const Duration(milliseconds: 100),
-        displayFullTextOnTap: true,
-        stopPauseOnTap: true,
-      ),
+      child: Scaffold(
+      body: PageView(
+
     )));
   }
 }
