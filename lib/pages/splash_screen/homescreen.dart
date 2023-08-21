@@ -5,6 +5,7 @@ import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:google_fonts/google_fonts.dart";
+import "package:testapp/pages/BrazilFields/br_fields.dart";
 import "package:testapp/pages/main_page.dart";
 import "package:testapp/shared/widgets/custom_drawer.dart";
 
@@ -49,21 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Container(
               color: Colors.green,
             ),
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      // obrigatório
-                      FilteringTextInputFormatter.digitsOnly,
-                      CepInputFormatter(),
-                    ],
-                  )
-                ],
-              ),
-            )
+            BrazilFields()
           ],
         ),
         bottomNavigationBar: ConvexAppBar(
