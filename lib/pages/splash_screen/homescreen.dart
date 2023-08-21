@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         ],
       ),
       bottomNavigationBar: ConvexAppBar.badge({0: '99+', 1: Icons.assistant_photo, 2: Colors.redAccent},
-      items: [
+      items: const [
         TabItem(icon: Icons.home, title: 'Home'),
         TabItem(icon: Icons.map, title: 'Discovery'),
         TabItem(icon: Icons.add, title: 'Add'),
