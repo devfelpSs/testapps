@@ -1,4 +1,5 @@
 import "package:animated_text_kit/animated_text_kit.dart";
+import "package:convex_bottom_bar/convex_bottom_bar.dart";
 import "package:flutter/material.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -12,32 +13,54 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  late TabController tabController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(initialIndex: 0, length: 5, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
-        appBar: AppBar(
-          title: Text(
-            "Meu App",
-            style: GoogleFonts.roboto(),
-          ),
+      appBar: AppBar(
+        title: Text(
+          "Meu App",
+          style: GoogleFonts.roboto(),
         ),
-        body: PageView(children: [
-          Container(color: Colors.yellow,),
-          Container(color: Colors.blue,),
-          Container(color: Colors.red,),
-          Container(color: Colors.green,),
-          Container(color: Colors.orange,)
+      ),
+      body: TabBarView(
+        controller: tabController,
+        children: [
+          Container(
+            color: Colors.yellow,
+          ),
+          Container(
+            color: Colors.blue,
+          ),
+          Container(
+            color: Colors.red,
+          ),
+          Container(
+            color: Colors.green,
+          ),
+          Container(
+            color: Colors.orange,
+          )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(label:"Item1", icon: FaIcon(FontAwesomeIcons.home)),
-          BottomNavigationBarItem(label:"Item1", icon: FaIcon(FontAwesomeIcons.home)),
-          BottomNavigationBarItem(label:"Item1", icon: FaIcon(FontAwesomeIcons.home)),
-          BottomNavigationBarItem(label:"Item1", icon: FaIcon(FontAwesomeIcons.home)),
-      ],),
-    );
+      bottomNavigationBar: ConvexAppBar.badge({0: '99+', 1: Icons.assistant_photo, 2: Colors.redAccent},
+      items: [
+        TabItem(icon: Icons.home, title: 'Home'),
+        TabItem(icon: Icons.map, title: 'Discovery'),
+        TabItem(icon: Icons.add, title: 'Add'),
+        TabItem(icon: Icons.message, title: 'Message'),
+        TabItem(icon: Icons.people, title: 'Profile'),
+      ], onTap: (int i) => tabController.index = i,
+      controller: tabController,
+    ));
   }
 }
