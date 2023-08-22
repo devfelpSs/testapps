@@ -1,6 +1,7 @@
-//Utilizar esse arquivo para construir o app...
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
 import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
@@ -274,18 +275,29 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: Row(
                   children: const [
-                    FaIcon(FontAwesomeIcons.house, color: Colors.blue,),
+                    FaIcon(
+                      FontAwesomeIcons.house,
+                      color: Colors.blue,
+                      size: 18,
+                    ),
                     SizedBox(
                       width: 5,
                     ),
                     Text("Intl"),
                   ],
                 )),
-            /*onTap: () async {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
-            },*/
+            onTap: () async {
+              await initializeDateFormatting('en_US', null);
+              await initializeDateFormatting('pt_BR', null);
+
+              var f = NumberFormat('###.0#', 'en_US');
+              var p = NumberFormat('###.0#', 'pt_BR');
+              print(f.format(12.345));
+              print(p.format(12.345));
+              var data = DateTime(2023, 06, 22);
+              print(DateFormat('EEEEE', 'en_US').format(data));
+              print(DateFormat('EEEEE', 'pt_BR').format(data));
+            },
           ),
           const Divider(),
           const SizedBox(
