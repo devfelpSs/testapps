@@ -274,18 +274,18 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: Row(
                   children: const [
-                    Icon(Icons.post_add),
+                    FaIcon(FontAwesomeIcons.house, color: Colors.blue,),
                     SizedBox(
                       width: 5,
                     ),
                     Text("Intl"),
                   ],
                 )),
-            onTap: () async {
+            /*onTap: () async {
               Navigator.pop(context);
               Navigator.push(context,
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
-            },
+            },*/
           ),
           const Divider(),
           const SizedBox(
