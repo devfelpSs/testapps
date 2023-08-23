@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testapp/model/configuracoes_model.dart';
 import 'package:testapp/repositories/configuracoes_repository.dart';
-import 'package:testapp/services/app_storage_service.dart';
 
 class ConfiguracoesHivePage extends StatefulWidget {
   const ConfiguracoesHivePage({super.key});

@@ -4,7 +4,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../model/characters_model.dart';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:convert/convert.dart';
-import 'package:query/query.dart';
 
 
 
@@ -24,7 +23,7 @@ class MarvelRepository {
   }
 
   _generateMD5(String data){
-    var content = new Utf8Encoder().convert(data);
+    var content = const Utf8Encoder().convert(data);
     var md5 = crypto.md5;
     var digest = md5.convert(content);
     return hex.encode(digest.bytes);

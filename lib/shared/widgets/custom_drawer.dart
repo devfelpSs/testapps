@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:testapp/model/dados_cadastrais_model.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
-import 'package:testapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_http_page.dart';
-import 'package:testapp/repositories/back4app/tarefas_back4app_repository.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
-import '../../pages/numeros_aleatorios/numeros_aleatorios_hive.dart';
-import '../../repositories/marvel/marvel_repository.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -66,8 +61,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     FaIcon(
                       FontAwesomeIcons.solidFloppyDisk,
                       color: Colors.green,
@@ -97,8 +92,8 @@ class CustomDrawer extends StatelessWidget {
                     horizontal:
                         10), //adiciona um padding com 10 de borda tanto na vertical quanto na horizontal
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.info),
                     SizedBox(
                       width: 5,
@@ -121,9 +116,9 @@ class CustomDrawer extends StatelessWidget {
                         "Termos de uso e Privacidade",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ), //titulo do dialogo com fonte em negrito
-                      content: Wrap(
+                      content: const Wrap(
                         //cria uma especie de Container, só que formato de acordo com o conteudo abaixo:
-                        children: const [
+                        children: [
                           Text(
                             " Podemos já vislumbrar o modo pelo qual a execução dos pontos do programa desafia a capacidade de equalização dos modos de operação convencionais. A nível organizacional, a expansão dos mercados mundiais estende o alcance e a importância das condições financeiras e administrativas exigidas. Todavia, o desenvolvimento contínuo de distintas formas de atuação apresenta tendências no sentido de aprovar a manutenção de alternativas às soluções ortodoxas. A prática cotidiana prova que o comprometimento entre as equipes faz parte de um processo de gerenciamento do sistema de formação de quadros que corresponde às necessidades.",
                             textAlign: TextAlign.center,
@@ -149,8 +144,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.table_view),
                     SizedBox(
                       width: 5,
@@ -176,8 +171,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.settings),
                     SizedBox(
                       width: 5,
@@ -203,8 +198,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.post_add),
                     SizedBox(
                       width: 5,
@@ -229,8 +224,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     FaIcon(
                       FontAwesomeIcons.paperclip,
                       color: Colors.blue,
@@ -241,7 +236,7 @@ class CustomDrawer extends StatelessWidget {
                 )),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => AutoSizeTextPage()));
+                  MaterialPageRoute(builder: (_) => const AutoSizeTextPage()));
             },
           ),
           const Divider(),
@@ -253,8 +248,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.post_add),
                     SizedBox(
                       width: 5,
@@ -273,8 +268,8 @@ class CustomDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     FaIcon(
                       FontAwesomeIcons.house,
                       color: Colors.blue,
@@ -309,8 +304,8 @@ class CustomDrawer extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   width: double.infinity,
-                  child: Row(
-                    children: const [
+                  child: const Row(
+                    children: [
                       Icon(Icons.exit_to_app),
                       SizedBox(
                         width: 5,
@@ -329,8 +324,8 @@ class CustomDrawer extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         title: const Text("Atenção",
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        content: Wrap(
-                          children: const [
+                        content: const Wrap(
+                          children: [
                             Text("Deseja realmente sair?"),
                           ],
                         ),

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/model/tarefa.dart';
-import 'package:testapp/model/tarefa_hive_model.dart';
 import 'package:testapp/model/tarefa_sqlite_model.dart';
 import 'package:testapp/repositories/sqlite/tarefa_sqlite_repository.dart';
 
-import '../../repositories/tarefa_hive_repository.dart';
-import '../../repositories/tarefa_repository.dart';
 
 
 class TarefaSQLitePage extends StatefulWidget {

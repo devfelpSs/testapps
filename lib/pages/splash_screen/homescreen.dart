@@ -1,12 +1,7 @@
-import "package:animated_text_kit/animated_text_kit.dart";
-import "package:brasil_fields/brasil_fields.dart";
 import "package:convex_bottom_bar/convex_bottom_bar.dart";
 import "package:flutter/material.dart";
-import "package:flutter/services.dart";
-import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import "package:google_fonts/google_fonts.dart";
 import "package:testapp/pages/BrazilFields/br_fields.dart";
-import "package:testapp/pages/main_page.dart";
 import "package:testapp/shared/widgets/custom_drawer.dart";
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         appBar: AppBar(
           title: Text(
             "Meu App",
@@ -50,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Container(
               color: Colors.green,
             ),
-            BrazilFields()
+            const BrazilFields()
           ],
         ),
         bottomNavigationBar: ConvexAppBar(

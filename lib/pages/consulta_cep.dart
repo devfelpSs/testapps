@@ -1,10 +1,6 @@
-import 'dart:convert';
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:http/http.dart' as http;
 import 'package:testapp/model/viacep_model.dart';
 import 'package:testapp/repositories/via_cep_repository.dart';
 
@@ -33,7 +29,7 @@ class _ConsultaCEPState extends State<ConsultaCEP> {
               keyboardType: TextInputType.number,
               //maxLength: 8,
               onChanged: (String value) async {
-                var cep = value.trim().replaceAll(new RegExp(r'[^0-9]'),'');
+                var cep = value.trim().replaceAll(RegExp(r'[^0-9]'),'');
                 if (cep.length == 8) {
                   setState(() {
                     loading = true;

@@ -21,7 +21,7 @@ class TarefasBack4AppRepository {
     try {
       await _customDio.dio.post("/Tarefas", data: tarefaBack4AppModel.toJsonEndpoint());
     } catch (e) {
-      throw e;
+      rethrow;
     }   
   }
   
@@ -29,7 +29,7 @@ class TarefasBack4AppRepository {
     try {
       await _customDio.dio.put("/Tarefas/${tarefaBack4AppModel.objectId}", data: tarefaBack4AppModel.toJsonEndpoint());
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -37,7 +37,7 @@ class TarefasBack4AppRepository {
     try {
       await _customDio.dio.delete("/Tarefas/$objectId");
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

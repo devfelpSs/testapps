@@ -16,9 +16,9 @@ class _ListViewPageState extends State<ListViewPage> {
        ListTile(
          leading: Image.asset(AppImages.profile2),
           title: const Text("Perfil 2"),
-          subtitle: Row(
+          subtitle: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text("Oi, tudo bom ?"),
               Text("08:59"),
             ],
@@ -40,9 +40,9 @@ class _ListViewPageState extends State<ListViewPage> {
         ListTile( //ListTile nos da uma gama muito grande de personalização, como neste caso criamos um bate papo entre 2 pessoas
           leading: Image.asset(AppImages.profile3),
           title: const Text("Perfil 3"),
-          subtitle: Row(
+          subtitle: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text("Tudo bem e você ?"),
               Text("09:01"),
             ],

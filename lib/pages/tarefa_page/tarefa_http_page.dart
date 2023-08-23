@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/model/tarefa_sqlite_model.dart';
 import 'package:testapp/model/tarefas_back4app_model.dart';
 import 'package:testapp/repositories/back4app/tarefas_back4app_repository.dart';
 
@@ -39,7 +38,7 @@ class _TarefaHttpPageState extends State<TarefaHttpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tarefas HTTP"),),
+      appBar: AppBar(title: const Text("Tarefas HTTP"),),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add), 
         onPressed: () {

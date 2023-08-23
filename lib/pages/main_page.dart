@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/pages/card_page.dart';
-import 'package:testapp/pages/image_assets.dart';
 import 'package:testapp/pages/list_view.dart';
 import 'package:testapp/pages/list_view_h.dart';
-import 'package:testapp/pages/tarefa_page/tarefa_hive_page.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_sqlite_page.dart';
 import 'package:testapp/pages/consulta_cep.dart';
 import '../shared/widgets/custom_drawer.dart';

@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:testapp/model/comment_model.dart';
 import 'package:testapp/repositories/comments/comments_repository.dart';
 import 'package:testapp/repositories/jsonplaceholder_custom_dio.dart';

@@ -39,17 +39,17 @@ class ViaCEPModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['cep'] = this.cep;
-    data['logradouro'] = this.logradouro;
-    data['complemento'] = this.complemento;
-    data['bairro'] = this.bairro;
-    data['localidade'] = this.localidade;
-    data['uf'] = this.uf;
-    data['ibge'] = this.ibge;
-    data['gia'] = this.gia;
-    data['ddd'] = this.ddd;
-    data['siafi'] = this.siafi;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['cep'] = cep;
+    data['logradouro'] = logradouro;
+    data['complemento'] = complemento;
+    data['bairro'] = bairro;
+    data['localidade'] = localidade;
+    data['uf'] = uf;
+    data['ibge'] = ibge;
+    data['gia'] = gia;
+    data['ddd'] = ddd;
+    data['siafi'] = siafi;
     return data;
   }
 }

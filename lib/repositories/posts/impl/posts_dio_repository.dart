@@ -1,6 +1,4 @@
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:testapp/model/post_model.dart';
 
 import '../../jsonplaceholder_custom_dio.dart';

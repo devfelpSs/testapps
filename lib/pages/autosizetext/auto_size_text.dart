@@ -15,10 +15,10 @@ class  _AutoSizeTextPageState extends State<AutoSizeTextPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Auto Size text"),
+          title: const Text("Auto Size text"),
         ),
         body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
               children: [
                 TextField(
@@ -30,7 +30,7 @@ class  _AutoSizeTextPageState extends State<AutoSizeTextPage> {
                 ),
                 Card(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4 ),
+                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4 ),
                     child: AutoSizeText(
                       controller.text, 
                       maxLines: 3,

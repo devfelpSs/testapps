@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:testapp/model/tarefa.dart';
 import 'package:testapp/model/tarefa_hive_model.dart';
 
 import '../../repositories/tarefa_hive_repository.dart';
-import '../../repositories/tarefa_repository.dart';
 
 
 class TarefaPage extends StatefulWidget {

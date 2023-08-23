@@ -25,22 +25,22 @@ class CircularPercentIndicatorPage extends StatelessWidget {
                 animationDuration: 1200,
                 lineWidth: 15.0,
                 percent: 0.4,
-                center: new Text(
+                center: const Text(
                   "40 hours",
                   style:
-                      new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.yellow,
                 progressColor: Colors.red,
               ),
-              new LinearPercentIndicator(
+              LinearPercentIndicator(
                 width: MediaQuery.of(context).size.width - 50,
                 animation: true,
                 lineHeight: 20.0,
                 animationDuration: 2000,
                 percent: 0.9,
-                center: Text("90.0%"),
+                center: const Text("90.0%"),
                 linearStrokeCap: LinearStrokeCap.roundAll,
                 progressColor: Colors.greenAccent,
               )
