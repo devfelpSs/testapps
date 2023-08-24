@@ -8,6 +8,7 @@ import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_http_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
@@ -273,27 +274,18 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.house,
+                      FontAwesomeIcons.mapLocationDot,
                       color: Colors.blue,
                       size: 18,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Intl"),
+                    Text("Abrir Google Maps"),
                   ],
                 )),
             onTap: () async {
-              await initializeDateFormatting('en_US', null);
-              await initializeDateFormatting('pt_BR', null);
-
-              var f = NumberFormat('###.0#', 'en_US');
-              var p = NumberFormat('###.0#', 'pt_BR');
-              print(f.format(12.345));
-              print(p.format(12.345));
-              var data = DateTime(2023, 06, 22);
-              print(DateFormat('EEEEE', 'en_US').format(data));
-              print(DateFormat('EEEEE', 'pt_BR').format(data));
+              await launchUrl(Uri.parse("google.navigation:q=Orlando FL&mode=d"));
             },
           ),
           InkWell(
