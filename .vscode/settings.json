@@ -1,5 +1,6 @@
 {
     "terminal.integrated.shellIntegration.suggestEnabled": true,
     "editor.snippetSuggestions": "top",
-    "emmet.showSuggestionsAsSnippets": true
+    "emmet.showSuggestionsAsSnippets": true,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

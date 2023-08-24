@@ -1,3 +1,4 @@
+import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -10,6 +11,7 @@ import 'package:testapp/pages/tarefa_page/tarefa_http_page.dart';
 
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
+import 'package:testapp/pages/Battery/battery.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -292,6 +294,26 @@ class CustomDrawer extends StatelessWidget {
               var data = DateTime(2023, 06, 22);
               print(DateFormat('EEEEE', 'en_US').format(data));
               print(DateFormat('EEEEE', 'pt_BR').format(data));
+            },
+          ),
+          InkWell(
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                width: double.infinity,
+                child: const Row(
+                  children: [
+                    FaIcon(FontAwesomeIcons.batteryHalf),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Bateria"),
+                  ],
+                )),
+            onTap: () async {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (bc) => const BatteryPage()));
             },
           ),
           const Divider(),
