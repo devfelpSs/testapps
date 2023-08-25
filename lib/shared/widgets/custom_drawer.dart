@@ -14,6 +14,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../pages/configuracoes/configuracoes_hive_page.dart';
 import '../../pages/dados_cadastrais/dados_cadastrais_hive.dart';
 import 'package:testapp/pages/Battery/battery.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
