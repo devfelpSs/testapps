@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
+import 'package:testapp/pages/connectivity_pkg/connectivity.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
@@ -268,7 +269,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
             },
           ),
-          InkWell(
+                    InkWell(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -276,54 +277,75 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.mapLocationDot,
+                      FontAwesomeIcons.wifi,
                       color: Colors.blue,
                       size: 18,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Abrir Google Maps"),
+                    Text("Conexão"),
                   ],
                 )),
             onTap: () async {
-              await launchUrl(
-                  Uri.parse("google.navigation:q=Orlando FL&mode=d"));
+                Navigator.push(context,
+                MaterialPageRoute(builder: (_) => const ConnectivityPlusPage()));
             },
           ),
-          InkWell(
-            child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                width: double.infinity,
-                child: const Row(
-                  children: [
-                    FaIcon(FontAwesomeIcons.robot),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text("Device Info"),
-                  ],
-                )),
-            onTap: () async {
-              DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-              if (Platform.isAndroid) {
-              AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-              print('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(
+          //             FontAwesomeIcons.mapLocationDot,
+          //             color: Colors.blue,
+          //             size: 18,
+          //           ),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("Abrir Google Maps"),
+          //         ],
+          //       )),
+          //   onTap: () async {
+          //     await launchUrl(
+          //         Uri.parse("google.navigation:q=Orlando FL&mode=d"));
+          //   },
+          // ),
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(FontAwesomeIcons.robot),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("Device Info"),
+          //         ],
+          //       )),
+          //   onTap: () async {
+          //     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+          //     if (Platform.isAndroid) {
+          //     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+          //     print('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
                 
-              }else if (Platform.isIOS){
-              IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-              print('Running on ${iosInfo.utsname.machine}'); // e.g. "iPod7,1"
+          //     }else if (Platform.isIOS){
+          //     IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+          //     print('Running on ${iosInfo.utsname.machine}'); // e.g. "iPod7,1"
 
-              }else {
-              WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
-              print(
-                  'Running on ${webBrowserInfo.userAgent}'); // e.g. "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
-              }
-
-
-            },
-          ),
+          //     }else {
+          //     WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
+          //     print(
+          //         'Running on ${webBrowserInfo.userAgent}'); // e.g. "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
+          //     }
+          //   },
+          // ),
           // InkWell(
           //   child: Container(
           //       padding:
