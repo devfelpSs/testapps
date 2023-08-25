@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:battery_plus/battery_plus.dart';
@@ -75,14 +74,14 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.solidFloppyDisk,
+                      FontAwesomeIcons.personCircleCheck,
                       color: Colors.green,
                       size: 20,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Opção 1"),
+                    Text("Cadastro"),
                   ],
                 )),
             onTap: () {
@@ -221,7 +220,6 @@ class CustomDrawer extends StatelessWidget {
               Share.share("check out my website: https://dio.me");
             },
           ),
-          const Divider(),
           const SizedBox(
             height: 10,
           ),
@@ -245,7 +243,6 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => const AutoSizeTextPage()));
             },
           ),
-          const Divider(),
           const SizedBox(
             height: 10,
           ),
@@ -269,7 +266,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
             },
           ),
-                    InkWell(
+          InkWell(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -288,8 +285,10 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 )),
             onTap: () async {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (_) => const ConnectivityPlusPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const ConnectivityPlusPage()));
             },
           ),
           // InkWell(
@@ -334,7 +333,7 @@ class CustomDrawer extends StatelessWidget {
           //     if (Platform.isAndroid) {
           //     AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
           //     print('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
-                
+
           //     }else if (Platform.isIOS){
           //     IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
           //     print('Running on ${iosInfo.utsname.machine}'); // e.g. "iPod7,1"
