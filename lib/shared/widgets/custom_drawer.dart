@@ -1,8 +1,11 @@
+import 'dart:html';
+
 import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
 import 'package:testapp/pages/login_page.dart';
@@ -282,7 +285,8 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 )),
             onTap: () async {
-              await launchUrl(Uri.parse("google.navigation:q=Orlando FL&mode=d"));
+              await launchUrl(
+                  Uri.parse("google.navigation:q=Orlando FL&mode=d"));
             },
           ),
           InkWell(
@@ -292,24 +296,51 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: const Row(
                   children: [
-                    FaIcon(FontAwesomeIcons.batteryHalf),
+                    FaIcon(FontAwesomeIcons.appStoreIos),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Bateria"),
+                    Text("PKG Info"),
                   ],
                 )),
             onTap: () async {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (bc) => const BatteryPage()));
+              PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+              String appName = packageInfo.appName;
+              String packageName = packageInfo.packageName;
+              String version = packageInfo.version;
+              String buildNumber = packageInfo.buildNumber;
+
+              print(appName);
+              print(packageName);
+              print(version);
+              print(buildNumber);
             },
           ),
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(FontAwesomeIcons.batteryHalf),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("Bateria"),
+          //         ],
+          //       )),
+          //   onTap: () async {
+          //     Navigator.pop(context);
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (bc) => const BatteryPage()));
+          //   },
+          // ),
           const Divider(),
           const SizedBox(
             height: 10,
           ),
-          const Divider(),
           InkWell(
               child: Container(
                   padding:
