@@ -192,7 +192,6 @@ class CustomDrawer extends StatelessWidget {
               );
             },
           ),
-          const Divider(),
           const SizedBox(
             height: 10,
           ),
@@ -203,11 +202,11 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: const Row(
                   children: [
-                    Icon(Icons.post_add),
+                    FaIcon(FontAwesomeIcons.shareNodes),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Posts"),
+                    Text("Compartilhar"),
                   ],
                 )),
             onTap: () {
