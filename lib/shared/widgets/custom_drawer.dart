@@ -4,12 +4,14 @@ import 'package:battery_plus/battery_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
 import 'package:testapp/pages/connectivity_pkg/connectivity.dart';
+import 'package:testapp/pages/geolocator/geolocator.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
@@ -274,23 +276,49 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.wifi,
+                      FontAwesomeIcons.mapPin,
                       color: Colors.blue,
-                      size: 18,
+                      size: 20,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Conexão"),
+                    Text("GPS"),
                   ],
                 )),
-            onTap: () async {
+            onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (_) => const ConnectivityPlusPage()));
+                      builder: (context) => const GeolocatorPage()));
             },
           ),
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(
+          //             FontAwesomeIcons.wifi,
+          //             color: Colors.blue,
+          //             size: 18,
+          //           ),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("Conexão"),
+          //         ],
+          //       )),
+          //   onTap: () async {
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //             builder: (_) => const ConnectivityPlusPage()));
+          //   },
+          // ),
           // InkWell(
           //   child: Container(
           //       padding:
