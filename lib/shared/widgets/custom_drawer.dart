@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
@@ -210,11 +211,7 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 )),
             onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (bc) => const PostsPage()),
-              );
+              Share.share("check out my website: https://dio.me");
             },
           ),
           const Divider(),
