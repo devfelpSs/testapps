@@ -1,6 +1,8 @@
-import 'dart:html';
+
+import 'dart:io';
 
 import 'package:battery_plus/battery_plus.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -296,27 +298,60 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: const Row(
                   children: [
-                    FaIcon(FontAwesomeIcons.appStoreIos),
+                    FaIcon(FontAwesomeIcons.robot),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("PKG Info"),
+                    Text("Device Info"),
                   ],
                 )),
             onTap: () async {
-              PackageInfo packageInfo = await PackageInfo.fromPlatform();
+              DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+              if (Platform.isAndroid) {
+              AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+              print('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
+                
+              }else if (Platform.isIOS){
+              IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+              print('Running on ${iosInfo.utsname.machine}'); // e.g. "iPod7,1"
 
-              String appName = packageInfo.appName;
-              String packageName = packageInfo.packageName;
-              String version = packageInfo.version;
-              String buildNumber = packageInfo.buildNumber;
+              }else {
+              WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
+              print(
+                  'Running on ${webBrowserInfo.userAgent}'); // e.g. "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
+              }
 
-              print(appName);
-              print(packageName);
-              print(version);
-              print(buildNumber);
+
             },
           ),
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(FontAwesomeIcons.appStoreIos),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("PKG Info"),
+          //         ],
+          //       )),
+          //   onTap: () async {
+          //     PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+          //     String appName = packageInfo.appName;
+          //     String packageName = packageInfo.packageName;
+          //     String version = packageInfo.version;
+          //     String buildNumber = packageInfo.buildNumber;
+
+          //     print(appName);
+          //     print(packageName);
+          //     print(version);
+          //     print(buildNumber);
+          //   },
+          // ),
           // InkWell(
           //   child: Container(
           //       padding:
