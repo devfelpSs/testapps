@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:testapp/pages/autosizetext/auto_size_text.dart';
+import 'package:testapp/pages/camera/camera_func.dart';
 import 'package:testapp/pages/connectivity_pkg/connectivity.dart';
 import 'package:testapp/pages/geolocator/geolocator.dart';
 import 'package:testapp/pages/login_page.dart';
@@ -269,7 +270,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
             },
           ),
-            InkWell(
+                      InkWell(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -277,14 +278,14 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.qrcode,
-                      color: Colors.pink,
+                      FontAwesomeIcons.camera,
+                      color: Colors.blueAccent,
                       size: 20,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("Qrcode"),
+                    Text("Camera"),
                   ],
                 )),
             onTap: () {
@@ -292,9 +293,35 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const QrCodePage()));
+                      builder: (context) => const CamerPage()));
             },
           ),
+          //   InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(
+          //             FontAwesomeIcons.qrcode,
+          //             color: Colors.pink,
+          //             size: 20,
+          //           ),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("Qrcode"),
+          //         ],
+          //       )),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //             builder: (context) => const QrCodePage()));
+          //   },
+          // ),
           // InkWell(
           //   child: Container(
           //       padding:
