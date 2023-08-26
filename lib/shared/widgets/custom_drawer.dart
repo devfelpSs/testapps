@@ -15,6 +15,7 @@ import 'package:testapp/pages/geolocator/geolocator.dart';
 import 'package:testapp/pages/login_page.dart';
 import 'package:testapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preferences.dart';
 import 'package:testapp/pages/posts_page.dart';
+import 'package:testapp/pages/qrcode/qrcode.dart';
 import 'package:testapp/pages/tarefa_page/tarefa_http_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -268,7 +269,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
             },
           ),
-          InkWell(
+            InkWell(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -276,14 +277,14 @@ class CustomDrawer extends StatelessWidget {
                 child: const Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.mapPin,
-                      color: Colors.blue,
+                      FontAwesomeIcons.qrcode,
+                      color: Colors.pink,
                       size: 20,
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Text("GPS"),
+                    Text("Qrcode"),
                   ],
                 )),
             onTap: () {
@@ -291,9 +292,35 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const GeolocatorPage()));
+                      builder: (context) => const QrCodePage()));
             },
           ),
+          // InkWell(
+          //   child: Container(
+          //       padding:
+          //           const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          //       width: double.infinity,
+          //       child: const Row(
+          //         children: [
+          //           FaIcon(
+          //             FontAwesomeIcons.mapPin,
+          //             color: Colors.blue,
+          //             size: 20,
+          //           ),
+          //           SizedBox(
+          //             width: 5,
+          //           ),
+          //           Text("GPS"),
+          //         ],
+          //       )),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //             builder: (context) => const GeolocatorPage()));
+          //   },
+          // ),
           // InkWell(
           //   child: Container(
           //       padding:
