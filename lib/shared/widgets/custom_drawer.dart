@@ -270,7 +270,7 @@ class CustomDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (bc) => const TarefaHttpPage()));
             },
           ),
-                      InkWell(
+          InkWell(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -290,10 +290,8 @@ class CustomDrawer extends StatelessWidget {
                 )),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const CamerPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CamerPage()));
             },
           ),
           //   InkWell(
