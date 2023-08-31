@@ -35,16 +35,13 @@ class _CamerPageState extends State<CamerPage> {
             toolbarWidgetColor: Colors.white,
             initAspectRatio: CropAspectRatioPreset.original,
             lockAspectRatio: false),
-        IOSUiSettings(
-          title: 'Cropper'),
+        IOSUiSettings(title: 'Cropper'),
       ],
     );
     if (croppedFile != null) {
-    await GallerySaver.saveImage(croppedFile.path);
-    photo = XFile(croppedFile.path);
-    setState(() {
-      
-    });
+      await GallerySaver.saveImage(croppedFile.path);
+      photo = XFile(croppedFile.path);
+      setState(() {});
     }
   }
 
@@ -65,8 +62,8 @@ class _CamerPageState extends State<CamerPage> {
                       return Wrap(
                         children: [
                           ListTile(
-                              leading: FaIcon(FontAwesomeIcons.camera),
-                              title: Text("Camera"),
+                              leading: const FaIcon(FontAwesomeIcons.camera),
+                              title: const Text("Camera"),
                               onTap: () async {
                                 final ImagePicker picker = ImagePicker();
                                 photo = await picker.pickImage(
@@ -86,8 +83,8 @@ class _CamerPageState extends State<CamerPage> {
                                 }
                               }),
                           ListTile(
-                              leading: FaIcon(FontAwesomeIcons.photoFilm),
-                              title: Text("Galeria"),
+                              leading: const FaIcon(FontAwesomeIcons.photoFilm),
+                              title: const Text("Galeria"),
                               onTap: () async {
                                 final ImagePicker picker = ImagePicker();
                                 photo = await picker.pickImage(
@@ -102,7 +99,7 @@ class _CamerPageState extends State<CamerPage> {
                       );
                     });
               },
-              child: Text("Butão")),
+              child: const Text("Butão")),
           photo != null
               ? Container(
                   child: Image.file(File(photo!.path)),
